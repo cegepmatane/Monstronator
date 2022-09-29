@@ -1,2 +1,2 @@
-# projet-editeur-2022-GalahadIII
-projet-editeur-2022-GalahadIII created by GitHub Classroom
+# projet-editeur-2022
+projet-editeur-2022created by GitHub Classroom
