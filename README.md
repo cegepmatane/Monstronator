@@ -4,7 +4,18 @@
 
 // https://pixelencounter.com/Api
 
-## Chose à ajouter sur les monstres
+## Chose à modifer sur les monstres
+
+#### Couleur
+- Rouge
+- Bleu
+- Vert
+- Jaune
+- Orange
+- Turquoize
+
+#### Background
+- #TODO
 
 #### Yeux
 - anime
