@@ -3,34 +3,35 @@ package controleur;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Controleur;
-import modele.jardinModele.LEGUME;
-import vue.VueJardinator;
+//import modele.MonstreModele.LEGUME;
+import vue.VueMonstronator;
 
-public class ControleurJardinator extends Controleur{
-	private VueJardinator vue;
-	protected LEGUME legumeChoisis;
+public class ControleurMonstronator extends Controleur{
+	private VueMonstronator  vue;
+	
+	//protected LEGUME legumeChoisis;
 
-	public ControleurJardinator()
+	public ControleurMonstronator()
 	{
-		Logger.logMsg(Logger.INFO, "new ControleurJardinator()");
+		Logger.logMsg(Logger.INFO, "new ControleurMonstronator()");
 	}
 	
 	public void initialiser()
 	{
-		 vue = VueJardinator.getInstance();
+		 vue = VueMonstronator.getInstance();
 	}
 
-	public void notifierLegume() {
-		System.out.println("notifier legume");
+	public void notifierSelection() {
+		System.out.println("notifier selection");
 		
 	}
-	public void notifierJardin() {
-		System.out.println("notifier jardin");
+	public void notifierCarte() {
+		System.out.println("notifier carte");
 		
 	}
 
 	public void notifierClick(double x, double y) {
-		vue.afficherLegume(x, y);
+		vue.afficherSelection(x, y);
 	}
 	
 

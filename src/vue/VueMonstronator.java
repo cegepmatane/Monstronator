@@ -2,7 +2,7 @@ package vue;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Vue;
-import controleur.ControleurJardinator;
+import controleur.ControleurMonstronator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -11,20 +11,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
-import modele.jardinModele.LEGUME;
+import modele.MonstreModele;
+import vue.FxmlId;
 
-public class VueJardinator extends Vue {
+public class VueMonstronator extends Vue{
 
-	protected ControleurJardinator controleur;
-	protected static VueJardinator instance = null; 
-	public static VueJardinator getInstance() {if(null==instance)instance = new VueJardinator();return VueJardinator.instance;}; 
+	protected ControleurMonstronator  controleur;
+	protected static VueMonstronator  instance = null; 
+	public static VueMonstronator  getInstance() {if(null==instance)instance = new VueMonstronator();return VueMonstronator.instance;}; 
 	private String urlImg;
 	
 	
-	private VueJardinator() 
+	private VueMonstronator () 
 	{
-		super("jardinator.fxml", VueJardinator.class, 1294,743);
-		super.controleur = this.controleur = new ControleurJardinator();
+		super("monstronator.fxml", VueMonstronator .class, 1294,743);
+		super.controleur = this.controleur = new ControleurMonstronator ();
 		Logger.logMsg(Logger.INFO, "new VueJardinator()");
 	}
 		
@@ -37,130 +38,42 @@ public class VueJardinator extends Vue {
 		{
             @Override public void handle(ActionEvent e) 
             {
-            	System.out.println("Choisir carrote");
-            	controleur.notifierLegume();
+            	System.out.println("handle");
+            	controleur.notifierSelection();
             	urlImg = "vue/decoration/semis/carotte.png";
-            	allumerSemis(actionChoisirCarrote);
+            	allumerSelection(actionChoisirCarrote);
             }
         });
 		
-		Button actionChoisirChou = (Button)lookup("#choisir-chou");
-		actionChoisirChou.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir chou");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/chou.png";
-            	allumerSemis(actionChoisirChou);
-            }
-        });
-		
-		Button actionChoisirChampignon = (Button)lookup("#choisir-champignon");
-		actionChoisirChampignon.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir champignon");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/champignon.png";
-            	allumerSemis(actionChoisirChampignon);
-            }
-        });
-		
-		Button actionChoisirLaitue = (Button)lookup("#choisir-laitue");
-		actionChoisirLaitue.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir laitue");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/laitue.png";
-            	allumerSemis(actionChoisirLaitue);
-            }
-        });
-		
-		Button actionChoisirChouFleu = (Button)lookup("#choisir-chou-fleur");
-		actionChoisirChouFleu.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir chou-fleu");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/chou-fleur.png";
-            	allumerSemis(actionChoisirChouFleu);
-            }
-        });
-		
-		Button actionChoisirOignon = (Button)lookup("#choisir-oignon");
-		actionChoisirOignon.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir oignon");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/oignon.png";
-            	allumerSemis(actionChoisirOignon);
-            }
-        });
-		
-		Button actionChoisirPanais = (Button)lookup("#choisir-panais");
-		actionChoisirPanais.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir panais");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/panais.png";
-            	allumerSemis(actionChoisirPanais);
-            }
-        });
-		
-		
-		Button actionChoisirRadis = (Button)lookup("#choisir-radis");
-		actionChoisirRadis.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Choisir radis");
-            	controleur.notifierLegume();
-            	urlImg = "vue/decoration/semis/radis.png";
-            	allumerSemis(actionChoisirRadis);
-            }
-        });
-		
-		
-		
-		Rectangle jardin = (Rectangle)lookup("#jardin-terre");
-		jardin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			
+		Rectangle carte = (Rectangle)lookup(FxmlId.CARTE);
+		carte.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent arg0) {
-				System.out.println("jardin handle");
-            	controleur.notifierJardin();
+				System.out.println("carte handle");
+            	controleur.notifierCarte();
             	double x = arg0.getX();
             	double y = arg0.getY();
             	System.out.println("x / y: "+ x+" / "+y);
             	controleur.notifierClick(x, y);
 			}
-
 			
 		});
 		
-
 	}
 	
-	private Button semisAllume = null;
+	private Button selectionAllume = null;
 	
 	
-	public void allumerSemis(Button legume) {
-		if(semisAllume!=null) this.semisAllume.setStyle("-fx-background-color:transparent;-fx-opacity:1;");
-		semisAllume = legume;
-		this.semisAllume.setStyle("-fx-background-color:yellow;-fx-opacity:0.6;");
+	public void allumerSelection(Button legume) {
+		if(selectionAllume!=null) this.selectionAllume.setStyle("-fx-background-color:transparent;-fx-opacity:1;");
+		selectionAllume = legume;
+		this.selectionAllume.setStyle("-fx-background-color:yellow;-fx-opacity:0.6;");
 		}
 	
 	
-	public void afficherLegume(double x, double y) {
+	public void afficherSelection(double x, double y) {
 		ImageView legumePlantee = new ImageView();
 		legumePlantee.setImage(new Image(urlImg));
 		legumePlantee.setFitHeight(100);
@@ -169,6 +82,5 @@ public class VueJardinator extends Vue {
 		legumePlantee.setY(y-50);
 		AnchorPane cloture = (AnchorPane)lookup("#jardin-cloture");
 		cloture.getChildren().add(legumePlantee);
-		
 	}
 }
