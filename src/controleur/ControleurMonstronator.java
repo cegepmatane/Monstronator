@@ -21,17 +21,18 @@ public class ControleurMonstronator extends Controleur{
 		 vue = VueMonstronator.getInstance();
 	}
 
-	public void notifierSelection() {
-		System.out.println("notifier selection");
-		
-	}
 	public void notifierCarte() {
 		System.out.println("notifier carte");
 		
 	}
 
-	public void notifierClick(double x, double y) {
+	public void notifierClic(double x, double y) {
 		vue.afficherSelection(x, y);
+	}
+
+	public void notifierClicPartieMonstre() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
