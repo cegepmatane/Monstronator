@@ -80,7 +80,7 @@ public class VueMonstronator extends Vue{
 		composantPlacee.setPreserveRatio(true);
 		composantPlacee.setX(x-(composantPlacee.getBoundsInParent().getWidth()/2));
 		composantPlacee.setY(y-50);
-		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDER);
+		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDURE);
 		cloture.getChildren().add(composantPlacee);
 	}
 }
