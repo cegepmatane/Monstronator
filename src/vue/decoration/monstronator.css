@@ -1,0 +1,74 @@
+/*
+https://www.freepik.com/free-vector/healthy-orange-carrots-graphic-illustration_2632380.htm
+https://www.freepik.com/free-vector/different-types-vegetables_1175892.htm#page=1&query=onion&position=47
+https://www.vecteezy.com/vector-art/433183-brown-soil-texture-background
+https://all-free-download.com/free-vector/download/clover-ribbon-vector_163196.html ou https://www.jing.fm/iclipt/TJRoxx/
+*/
+/* 
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #dc143c, #32cd32);
+   -fx-background-radius: 30;
+   -fx-opacity:0.3;
+   
+   -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, white, #32cd32);
+   -fx-background-radius: 30;
+   -fx-opacity:0.4;
+
+*/
+#fenetre
+{
+    -fx-background-color:#fff;
+}
+#entete
+{
+    -fx-background-color: black;
+}
+#entete Label
+{
+    -fx-text-fill : linear-gradient(from 25% 25% to 25% 100%, #A2B9B0, #3D2B56);  
+}
+
+
+#espace-travail
+{
+    //-fx-background-color:#f2f2f2; //  gainsboro
+    //-fx-background-color:#faff9e;
+    -fx-background-color: linear-gradient(from 25% 25% to 25% 100%, #A2B9B0, #81A094);
+}
+
+
+#background-monstre
+{
+    //-fx-background-color:#835629;
+    -fx-background-image:url('terre.png');
+    -fx-background-radius:30;
+    //-fx-border-color:black;
+    //-fx-border-radius:30;
+}
+
+#actions Button
+{
+//    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2D3339, #3D2B56);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2D3339, #3D2B56);
+    -fx-background-radius:10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-font-size:20px;
+    -fx-cursor: hand;
+}
+#actions Button:hover
+{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3e464e, #553c77);    
+}
+#boutton-changer-bg Button
+{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2D3339, #3D2B56);
+    -fx-background-radius:10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-font-size:20px;
+    -fx-cursor: hand;
+}
+#boutton-changer-bg Button:hover
+{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3e464e, #553c77); 
+}

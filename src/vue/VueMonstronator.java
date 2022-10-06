@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
-import modele.MonstreModele;
 import vue.FxmlId;
 
 public class VueMonstronator extends Vue{
@@ -26,7 +25,7 @@ public class VueMonstronator extends Vue{
 	{
 		super("monstronator.fxml", VueMonstronator .class, 1294,743);
 		super.controleur = this.controleur = new ControleurMonstronator ();
-		Logger.logMsg(Logger.INFO, "new VueJardinator()");
+		Logger.logMsg(Logger.INFO, "new VueMonstronator()");
 	}
 		
 	public void activerControles()
@@ -39,7 +38,7 @@ public class VueMonstronator extends Vue{
             @Override public void handle(ActionEvent e) 
             {
             	System.out.println("handle");
-            	controleur.notifierSelection();
+            	controleur.notifierClicPartieMonstre();
             	urlImg = "vue/decoration/semis/carotte.png"; // TODO changer les images
             	allumerSelection(actionChoisirCarrote);
             }
@@ -56,7 +55,7 @@ public class VueMonstronator extends Vue{
             	double x = arg0.getX();
             	double y = arg0.getY();
             	System.out.println("x / y: "+ x+" / "+y);
-            	controleur.notifierClick(x, y);
+            	controleur.notifierClic(x, y);
 			}
 			
 		});
