@@ -26,29 +26,7 @@ https://all-free-download.com/free-vector/download/clover-ribbon-vector_163196.h
 {
     -fx-text-fill : linear-gradient(from 25% 25% to 25% 100%, #A2B9B0, #3D2B56);  
 }
-#menu
-{
-    -fx-background-color: #0d401d;//#34495e;
-}
 
-#menu Button
-{
-    -fx-background-color: #0d401d;//#34495e;
-    -fx-border-radius: 0px;
-    -fx-border-insets: 0px 0px 0px 0px;
-    -fx-cursor: hand;
-}
-
-#menu Button:hover{
-    -fx-background-color: #333333;
-    //-fx-border-width: 0px 0px 0px 3px;
-    -fx-border-color: white;
-    -fx-border-style: solid;
-}
-#menu Button:pressed
-{
-    -fx-background-color: #cccccc;   
-}
 
 #espace-travail
 {
@@ -57,33 +35,8 @@ https://all-free-download.com/free-vector/download/clover-ribbon-vector_163196.h
     -fx-background-color: linear-gradient(from 25% 25% to 25% 100%, #A2B9B0, #81A094);
 }
 
-#semis
-{
-   -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, white, #32cd32);
-   -fx-background-radius: 30;
-   -fx-opacity:0.9;
-   -fx-border-color:green;
-   -fx-border-radius:30;
-}
 
-#semis Button
-{
-    -fx-background-color:transparent;
-}
-#semis-grille
-{
-    -fx-grid-lines-visible: true;
-    -fx-stroke: green;
-    -fx-stroke-dash-array: 2 2 4 2;
-    -fx-stroke-width: 1;
-}
-#semis-grille Button
-{
-    -fx-background-color:transparent;
-    -fx-cursor:hand;
-}
-
-#jardin-cloture
+#background-monstre
 {
     //-fx-background-color:#835629;
     -fx-background-image:url('terre.png');
@@ -104,5 +57,18 @@ https://all-free-download.com/free-vector/download/clover-ribbon-vector_163196.h
 }
 #actions Button:hover
 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #24a33b, #2a81a3);    
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3e464e, #553c77);    
+}
+#boutton-changer-bg Button
+{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2D3339, #3D2B56);
+    -fx-background-radius:10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-font-size:20px;
+    -fx-cursor: hand;
+}
+#boutton-changer-bg Button:hover
+{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3e464e, #553c77); 
 }
