@@ -1,5 +1,6 @@
 package vue;
 
 public interface FxmlId {
-	String CARTE = "#carte";
+	String CARTE = null;
+	String BORDER = null;
 }

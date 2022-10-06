@@ -40,7 +40,7 @@ public class VueMonstronator extends Vue{
             {
             	System.out.println("handle");
             	controleur.notifierSelection();
-            	urlImg = "vue/decoration/semis/carotte.png";
+            	urlImg = "vue/decoration/semis/carotte.png"; // TODO changer les images
             	allumerSelection(actionChoisirCarrote);
             }
         });
@@ -74,13 +74,13 @@ public class VueMonstronator extends Vue{
 	
 	
 	public void afficherSelection(double x, double y) {
-		ImageView legumePlantee = new ImageView();
-		legumePlantee.setImage(new Image(urlImg));
-		legumePlantee.setFitHeight(100);
-		legumePlantee.setPreserveRatio(true);
-		legumePlantee.setX(x-(legumePlantee.getBoundsInParent().getWidth()/2));
-		legumePlantee.setY(y-50);
-		AnchorPane cloture = (AnchorPane)lookup("#jardin-cloture");
-		cloture.getChildren().add(legumePlantee);
+		ImageView composantPlacee = new ImageView();
+		composantPlacee.setImage(new Image(urlImg));
+		composantPlacee.setFitHeight(100);
+		composantPlacee.setPreserveRatio(true);
+		composantPlacee.setX(x-(composantPlacee.getBoundsInParent().getWidth()/2));
+		composantPlacee.setY(y-50);
+		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDER);
+		cloture.getChildren().add(composantPlacee);
 	}
 }
