@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="fenetre" prefHeight="743.0" prefWidth="1294.0" stylesheets="@decoration/jardinator.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="fenetre" prefHeight="743.0" prefWidth="1294.0" stylesheets="@decoration/jardinator.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox id="menu" layoutX="-7.0" layoutY="92.0" prefHeight="651.0" prefWidth="83.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="92.0">
          <children>
@@ -75,8 +75,8 @@
                <children>
                   <Button layoutX="20.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="RECOMMENCER" textOverrun="CLIP" />
                   <Button layoutX="20.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="UNDO" textOverrun="CLIP" />
-                  <Button layoutX="237.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="RANDOMISER" textOverrun="CLIP" />
                   <Button layoutX="237.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="REDO" textOverrun="CLIP" />
+                  <Button layoutX="236.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="RANDOMISER" textOverrun="CLIP" />
                </children>
             </AnchorPane>
             <Pane layoutX="6.0" layoutY="150.0" prefHeight="501.0" prefWidth="1207.0">
@@ -96,78 +96,14 @@
                         <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button id="choisir-carotte" fx:id="choisirCarotte" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP">
-                           <graphic>
-                              <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/carotte.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-radis" fx:id="choisirRadis" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1">
-                           <graphic>
-                              <ImageView fitHeight="101.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/radis.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-chou" fx:id="choisirChou" mnemonicParsing="false" prefHeight="140.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="2">
-                           <graphic>
-                              <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/chou.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-oignon" fx:id="choisirOignon" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3">
-                           <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/oignon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-chou-fleur" fx:id="choisirChouFleur" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.rowIndex="1">
-                           <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/chou-fleur.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-panais" fx:id="choisirPanias" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/panais.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-champignon" fx:id="choisirChampignon" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/champignon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="choisir-laitue" fx:id="choisirLaitue" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/laitue.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <Button id="choisir-carotte" fx:id="choisirCarotte" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP" />
+                        <Button id="choisir-radis" fx:id="choisirRadis" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1" />
+                        <Button id="choisir-chou" fx:id="choisirChou" mnemonicParsing="false" prefHeight="140.0" prefWidth="106.0" textOverrun="CLIP" />
+                        <Button id="choisir-oignon" fx:id="choisirOignon" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3" />
+                        <Button id="choisir-chou-fleur" fx:id="choisirChouFleur" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.rowIndex="1" />
+                        <Button id="choisir-panais" fx:id="choisirPanias" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button id="choisir-champignon" fx:id="choisirChampignon" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button id="choisir-laitue" fx:id="choisirLaitue" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <AnchorPane id="jardin-cloture" fx:id="jardinCloture" layoutX="493.0" layoutY="10.0" prefHeight="468.0" prefWidth="702.0">
@@ -179,9 +115,9 @@
             </Pane>
          </children>
       </AnchorPane>
-      <Pane id="entete" layoutX="-57.0" layoutY="-7.0" prefHeight="92.0" prefWidth="1294.0" AnchorPane.leftAnchor="-57.0" AnchorPane.rightAnchor="57.0">
+      <Pane id="entete" layoutX="-80.0" layoutY="1.0" prefHeight="92.0" prefWidth="1371.0" AnchorPane.leftAnchor="-80.0" AnchorPane.rightAnchor="3.0">
          <children>
-            <Label layoutX="429.0" layoutY="12.0" prefHeight="72.0" prefWidth="431.0" text="JARDINATOR" textFill="#fff7f7">
+            <Label layoutX="437.0" layoutY="-4.0" prefHeight="103.0" prefWidth="631.0" text="MONSTRONATOR" textFill="#fff7f7">
                <font>
                   <Font name="FreeMono" size="70.0" />
                </font>
@@ -196,10 +132,5 @@
             <DropShadow color="#7c7979" height="50.0" radius="24.5" width="50.0" />
          </effect>
       </Pane>
-      <ImageView fitHeight="141.0" fitWidth="691.0" layoutX="566.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@decoration/ruban-vert.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
