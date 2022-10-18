@@ -21,6 +21,7 @@ public class PartieMonstreTabPane extends TabPane{
 		super();
 		PARTIESMONSTRE = new PartieMonstreModele();
 		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
+		this.setId("tabPanneau");
 		creationTabs();
 	}
 	
