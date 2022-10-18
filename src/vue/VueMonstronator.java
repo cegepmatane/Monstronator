@@ -37,7 +37,6 @@ public class VueMonstronator extends Vue{
 		// creation et remplisage du tabPane
 		AnchorPane AnchorPaneMonstreTabPAne = (AnchorPane)lookup("#panneau-membre");
 		PartieMonstreTabPane paneauPartieMonstre = new PartieMonstreTabPane();
-		paneauPartieMonstre.creationTabs();
 		AnchorPaneMonstreTabPAne.getChildren().add(paneauPartieMonstre);
 		
 		/*	

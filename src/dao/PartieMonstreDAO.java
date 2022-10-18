@@ -22,24 +22,24 @@ public class PartieMonstreDAO {
 		
 		parties_Monstre = new ArrayList<>();
 
-	    System.out.println("folder_Monstre : ");
-	    System.out.println(folder_Monstre);
-	    System.out.println(folder_Monstre.listFiles());
-    	System.out.println("\nContent : ");
+//	    System.out.println("folder_Monstre : ");
+//	    System.out.println(folder_Monstre);
+//	    System.out.println(folder_Monstre.listFiles());
+//    	System.out.println("\nContent : ");
 	    for (final File fileEntry : folder_Monstre.listFiles()) {
-	    	System.out.println("fileEntry : ");
-	    	System.out.println(fileEntry);
+//	    	System.out.println("fileEntry : ");
+//	    	System.out.println(fileEntry);
 	    	parties_Monstre.add(fileEntry);
 	    }
 	    
-	    System.out.println("\nparties_Monstre : ");
-	    System.out.println(parties_Monstre);
+//	    System.out.println("\nparties_Monstre : ");
+//	    System.out.println(parties_Monstre);
 	    
 	    liste_contenant_liste_parti_monstre = new ArrayList<List<File>>();
 	    List<File> temp;
 	    for (File parti_monstre : parties_Monstre) {
 	    	temp = new ArrayList<>();
-	        System.out.println(parti_monstre);
+//	        System.out.println(parti_monstre);
 	        for (final File fileEntry : parti_monstre.listFiles()) {
 	        	temp.add(fileEntry);
 	        }
@@ -52,7 +52,7 @@ public class PartieMonstreDAO {
 	}
 
 	public List<File> getParties_Monstre() {
-		System.out.println("DOA.PartieMonstre.getParties_Monstre");
+//		System.out.println("DOA.PartieMonstre.getParties_Monstre");
 		return parties_Monstre;
 	}
 

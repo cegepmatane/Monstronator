@@ -20,6 +20,7 @@ public class PartieMonstreTabPane extends TabPane{
 	public PartieMonstreTabPane() {
 		super();
 		PARTIESMONSTRE = new PartieMonstreModele();
+		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 		creationTabs();
 	}
 	
@@ -61,8 +62,6 @@ public class PartieMonstreTabPane extends TabPane{
 			}
 			counter++;
 		}
-		
-		System.out.println("cafe");
 		
 	}
 	
