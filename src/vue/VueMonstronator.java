@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import vue.FxmlId;
 
@@ -39,22 +40,16 @@ public class VueMonstronator extends Vue{
 		PartieMonstreTabPane paneauPartieMonstre = new PartieMonstreTabPane();
 		AnchorPaneMonstreTabPAne.getChildren().add(paneauPartieMonstre);
 		
-		/*	
-		Rectangle carte = (Rectangle)lookup(FxmlId.CARTE);
-		carte.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent arg0) {
-				System.out.println("carte handle");
-            	controleur.notifierCarte();
-            	double x = arg0.getX();
-            	double y = arg0.getY();
-            	System.out.println("x / y: "+ x+" / "+y);
-            	controleur.notifierClic(x, y);
-			}
-			
-		});
-		*/
+		Pane paneButtonBackGround = (Pane)lookup("#boutton-changer-bg");
+		Button actionChangerBackGround = (Button) paneButtonBackGround.getChildren().get(0);
+		actionChangerBackGround.setOnAction(new EventHandler<ActionEvent>() 
+		{
+            @Override public void handle(ActionEvent e) 
+            {
+            	System.out.println("Handle.actionChangerBackGround");
+            	// TODO Handler change backGround
+            }
+        });
 		
 	}
 	
