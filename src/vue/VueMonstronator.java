@@ -73,4 +73,8 @@ public class VueMonstronator extends Vue{
 		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDURE);
 		cloture.getChildren().add(composantPlacee);
 	}
+	
+	public void changerBackGround() {
+		// TODO changer l'image du Rectangle fx:id="jardinTerre" et refaire sont id son id pour backgroundMonstre
+	}
 }
