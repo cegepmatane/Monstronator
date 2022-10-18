@@ -25,6 +25,7 @@ public class PartieMonstreModele {
 
 
 	public List<File> getParties_Monstre() {
+		System.out.println("Model.getParties_Monstre()");
 		return parties_Monstre;
 	}
 

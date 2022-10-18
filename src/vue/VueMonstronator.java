@@ -40,7 +40,7 @@ public class VueMonstronator extends Vue{
 		paneauPartieMonstre.creationTabs();
 		AnchorPaneMonstreTabPAne.getChildren().add(paneauPartieMonstre);
 		
-			
+		/*	
 		Rectangle carte = (Rectangle)lookup(FxmlId.CARTE);
 		carte.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
@@ -55,6 +55,7 @@ public class VueMonstronator extends Vue{
 			}
 			
 		});
+		*/
 		
 	}
 	

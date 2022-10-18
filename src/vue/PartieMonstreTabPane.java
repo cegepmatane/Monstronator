@@ -14,11 +14,12 @@ import modele.PartieMonstreModele;
 
 public class PartieMonstreTabPane extends TabPane{
 	
-	private final PartieMonstreModele PARTIESMONSTRE = new PartieMonstreModele();
+	private PartieMonstreModele PARTIESMONSTRE;
 	
 	
 	public PartieMonstreTabPane() {
 		super();
+		PARTIESMONSTRE = new PartieMonstreModele();
 		creationTabs();
 	}
 	
