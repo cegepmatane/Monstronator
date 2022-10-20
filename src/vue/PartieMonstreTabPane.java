@@ -3,8 +3,8 @@ package vue;
 import java.io.File;
 import java.util.List;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import controleur.ControleurMonstronator;
+import vue.evenement.ClicBouttonPanneau;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -15,10 +15,12 @@ import modele.PartieMonstreModele;
 public class PartieMonstreTabPane extends TabPane{
 	
 	private PartieMonstreModele PARTIESMONSTRE;
+	private ControleurMonstronator controleur;
 	
 	
 	public PartieMonstreTabPane() {
 		super();
+		this.controleur = new ControleurMonstronator();
 		PARTIESMONSTRE = new PartieMonstreModele();
 		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 		this.setId("tabPanneau");
@@ -51,34 +53,26 @@ public class PartieMonstreTabPane extends TabPane{
 		gridPane.setId("GridPane-"+tabName);
 		tabAnchorPane.getChildren().add(gridPane);
 		
-		int x =0;
-		int y =0;
+		int x = 0;
+		int y = 0;
 		int counter = 0;
 		for (File partieMonstre : parties_Monstre) {
 			gridPane.add(creerButton(partieMonstre, tabName, counter), x, y);
 			x++;
-			if (x==4) {
+			if (x == 4) {
 				y++;
-				x=x%3;
+				x %= 3;
 			}
 			counter++;
 		}
 		
 	}
 	
-	private static Button creerButton(File partieMonstre, String tabname, int counter) {
+	private Button creerButton(File partieMonstre, String tabname, int counter) {
 		Button button = new Button();
-		button.setId("button-"+tabname+"-"+counter);
-		button.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	// TODO Handler
-            }
-        });
+		String id = "button-"+tabname+"-"+counter;
+		button.setId(id);
+		button.setOnAction(new ClicBouttonPanneau(this.controleur, id));
 		return button;
 	}
-	
-	
-	
 }
