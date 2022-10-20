@@ -3,11 +3,13 @@ package controleur;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Controleur;
+import modele.BackGroundModele;
 //import modele.MonstreModele.LEGUME;
 import vue.VueMonstronator;
 
 public class ControleurMonstronator extends Controleur{
 	private VueMonstronator  vue;
+	private BackGroundModele BGModele;
 	
 	//protected LEGUME legumeChoisis;
 
@@ -19,6 +21,7 @@ public class ControleurMonstronator extends Controleur{
 	public void initialiser()
 	{
 		 vue = VueMonstronator.getInstance();
+		 BGModele = BackGroundModele.getInstance();
 	}
 
 	public void notifierCarte() {
@@ -32,7 +35,10 @@ public class ControleurMonstronator extends Controleur{
 
 	public void notifierClicPartieMonstre() {
 		// TODO Auto-generated method stub
-		
+	}
+	
+	public void notifierBackground() {
+		vue.changerBackGround(BGModele.getNextBackground());
 	}
 	
 

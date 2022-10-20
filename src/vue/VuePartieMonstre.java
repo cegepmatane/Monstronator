@@ -24,6 +24,7 @@ public class VuePartieMonstre extends TabPane{
 		PARTIESMONSTRE = new VueModelePartieMonstre();
 		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 		this.setId("tabPanneau");
+		this.setTabMinWidth(96);
 		creationTabs();
 	}
 	
@@ -37,6 +38,7 @@ public class VuePartieMonstre extends TabPane{
 			temp.setText(NomTab.getName());
 			temp.setId(NomTab.getName());
 			this.getTabs().add(temp);
+			System.out.println(NomTab.getName());
 		}
 		int counter = 0;
 		for (List<File> partie_Monstre : PARTIESMONSTRE.getListe_contenant_liste_parti_monstre()) {
