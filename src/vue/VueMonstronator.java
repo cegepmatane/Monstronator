@@ -18,17 +18,17 @@ public class VueMonstronator extends Vue{
 
 	protected ControleurMonstronator  controleur;
 	protected static VueMonstronator  instance = null; 
-	public static VueMonstronator  getInstance() {if(null==instance)instance = new VueMonstronator();return VueMonstronator.instance;}; 
+	public static VueMonstronator  getInstance() {if (null == instance)instance = new VueMonstronator(); return VueMonstronator.instance;};
 	private String urlImg;
 	
 	private AnchorPane BackGroundAnchor;
 	private ImageView BackGroundImageView;
 	
 	
-	private VueMonstronator () 
+	private VueMonstronator()
 	{
-		super("monstronator.fxml", VueMonstronator .class, 1294,743);
-		super.controleur = this.controleur = new ControleurMonstronator ();
+		super("monstronator.fxml", VueMonstronator .class, 1294, 743);
+		super.controleur = this.controleur = new ControleurMonstronator();
 		Logger.logMsg(Logger.INFO, "new VueMonstronator()");
 	}
 		
@@ -38,9 +38,9 @@ public class VueMonstronator extends Vue{
 		
 		
 		// creation et remplisage du tabPane
-		AnchorPane AnchorPaneMonstreTabPAne = (AnchorPane)lookup("#panneau-membre");
+		AnchorPane AnchorPaneMonstreTabPane = (AnchorPane)lookup("#panneau-membre");
 		VuePartieMonstre paneauPartieMonstre = new VuePartieMonstre();
-		AnchorPaneMonstreTabPAne.getChildren().add(paneauPartieMonstre);
+		AnchorPaneMonstreTabPane.getChildren().add(paneauPartieMonstre);
 		
 		Pane paneButtonBackGround = (Pane)lookup("#boutton-changer-bg");
 		Button actionChangerBackGround = (Button) paneButtonBackGround.getChildren().get(0);
@@ -63,7 +63,7 @@ public class VueMonstronator extends Vue{
 	
 	
 	public void allumerSelection(Button legume) {
-		if(selectionAllume!=null) this.selectionAllume.setStyle("-fx-background-color:transparent;-fx-opacity:1;");
+		if(selectionAllume != null) this.selectionAllume.setStyle("-fx-background-color:transparent;-fx-opacity:1;");
 		selectionAllume = legume;
 		this.selectionAllume.setStyle("-fx-background-color:yellow;-fx-opacity:0.6;");
 		}
@@ -74,8 +74,8 @@ public class VueMonstronator extends Vue{
 		composantPlacee.setImage(new Image(urlImg));
 		composantPlacee.setFitHeight(100);
 		composantPlacee.setPreserveRatio(true);
-		composantPlacee.setX(x-(composantPlacee.getBoundsInParent().getWidth()/2));
-		composantPlacee.setY(y-50);
+		composantPlacee.setX(x - (composantPlacee.getBoundsInParent().getWidth() / 2));
+		composantPlacee.setY(y - 50);
 		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDURE);
 		cloture.getChildren().add(composantPlacee);
 	}
