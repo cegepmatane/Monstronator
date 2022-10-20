@@ -22,7 +22,6 @@ public class VueMonstronator extends Vue{
 	private String urlImg;
 	
 	private AnchorPane BackGroundAnchor;
-	private Rectangle BackGround;
 	
 	
 	private VueMonstronator () 
@@ -54,8 +53,6 @@ public class VueMonstronator extends Vue{
         });
 		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
-		BackGround = (Rectangle) BackGroundAnchor.getChildren().get(0);
-		
 	}
 	
 	private Button selectionAllume = null;
