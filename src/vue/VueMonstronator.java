@@ -22,6 +22,7 @@ public class VueMonstronator extends Vue{
 	private String urlImg;
 	
 	private AnchorPane BackGroundAnchor;
+	private ImageView BackGroundImageView;
 	
 	
 	private VueMonstronator () 
@@ -53,6 +54,7 @@ public class VueMonstronator extends Vue{
         });
 		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
+		BackGroundImageView = (ImageView) BackGroundAnchor.getChildren().get(0);
 	}
 	
 	private Button selectionAllume = null;
@@ -77,7 +79,7 @@ public class VueMonstronator extends Vue{
 	}
 	
 	public void changerBackGround(File file) {
-		System.out.println(file.getAbsolutePath());
-		BackGroundAnchor.setStyle("-fx-background-image:url('"+ file.getAbsolutePath() +"')");
+		System.out.println((file.getPath()).substring(4));
+		BackGroundImageView.setImage(new Image((file.getPath()).substring(4)));
 	}
 }
