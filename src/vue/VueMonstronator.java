@@ -1,4 +1,6 @@
 package vue;
+import java.io.File;
+
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Vue;
@@ -12,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import vue.FxmlId;
 
@@ -21,6 +24,9 @@ public class VueMonstronator extends Vue{
 	protected static VueMonstronator  instance = null; 
 	public static VueMonstronator  getInstance() {if(null==instance)instance = new VueMonstronator();return VueMonstronator.instance;}; 
 	private String urlImg;
+	
+	private AnchorPane BackGroundAnchor;
+	private Rectangle BackGround;
 	
 	
 	private VueMonstronator () 
@@ -47,10 +53,12 @@ public class VueMonstronator extends Vue{
             @Override public void handle(ActionEvent e) 
             {
             	System.out.println("Handle.actionChangerBackGround");
-            	// TODO Handler change backGround
+            	controleur.notifierBackground();
             }
         });
 		
+		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
+		BackGround = (Rectangle) BackGroundAnchor.getChildren().get(0);
 	}
 	
 	private Button selectionAllume = null;
@@ -74,7 +82,8 @@ public class VueMonstronator extends Vue{
 		cloture.getChildren().add(composantPlacee);
 	}
 	
-	public void changerBackGround() {
-		// TODO changer l'image du Rectangle fx:id="jardinTerre" et refaire sont id son id pour backgroundMonstre
+	public void changerBackGround(File file) {
+		System.out.println(file.getAbsolutePath());
+		BackGroundAnchor.setStyle("-fx-background-image:url('"+ file.getAbsolutePath() +"')");
 	}
 }
