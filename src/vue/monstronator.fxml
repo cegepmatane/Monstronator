@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="fenetre" prefHeight="743.0" prefWidth="1294.0" stylesheets="@decoration/monstronator.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
@@ -23,9 +24,10 @@
             </AnchorPane>
             <Pane layoutX="6.0" layoutY="137.0" prefHeight="515.0" prefWidth="1280.0">
                <children>
-                  <AnchorPane id="background-monstre" fx:id="backgroundMonstre" layoutX="494.0" layoutY="-1.0" prefHeight="516.0" prefWidth="771.0">
+                  <AnchorPane id="background-monstre" fx:id="backgroundMonstre" layoutX="487.0" layoutY="-28.0" prefHeight="515.0" prefWidth="772.0">
                      <children>
                         <ImageView fitHeight="517.0" fitWidth="772.0" pickOnBounds="true" preserveRatio="true" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="517.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="772.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane id="panneau-membre" fx:id="panneauMembre" layoutX="15.0" layoutY="2.0" prefHeight="481.0" prefWidth="462.0" />
