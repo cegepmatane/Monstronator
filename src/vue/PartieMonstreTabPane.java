@@ -4,7 +4,8 @@ import java.io.File;
 import java.util.List;
 
 import controleur.ControleurMonstronator;
-import vue.evenement.ClicBouttonPanneau;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -75,4 +76,23 @@ public class PartieMonstreTabPane extends TabPane{
 		button.setOnAction(new ClicBouttonPanneau(this.controleur, id));
 		return button;
 	}
+
+	public static class ClicBouttonPanneau implements EventHandler<ActionEvent> {
+		ControleurMonstronator controleur;
+		String id;
+
+		public ClicBouttonPanneau(ControleurMonstronator controleur, String id)
+		{
+			this.controleur = controleur;
+			this.id = id;
+		}
+
+		public void handle(ActionEvent e)
+		{
+			System.out.println("action ClicBouttonPanneau - handle("+id+") ");
+			controleur.notifierClicPartieMonstre();
+		}
+	}
+
 }
+
