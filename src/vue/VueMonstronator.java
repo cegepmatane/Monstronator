@@ -6,10 +6,12 @@ import controleur.ControleurMonstronator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import vue.FxmlId;
 
@@ -32,33 +34,22 @@ public class VueMonstronator extends Vue{
 	{
 		super.activerControles();
 		
-		Button actionChoisirCarrote = (Button)lookup("#choisir-carotte");
-		actionChoisirCarrote.setOnAction(new EventHandler<ActionEvent>() 
+		
+		// creation et remplisage du tabPane
+		AnchorPane AnchorPaneMonstreTabPAne = (AnchorPane)lookup("#panneau-membre");
+		PartieMonstreTabPane paneauPartieMonstre = new PartieMonstreTabPane();
+		AnchorPaneMonstreTabPAne.getChildren().add(paneauPartieMonstre);
+		
+		Pane paneButtonBackGround = (Pane)lookup("#boutton-changer-bg");
+		Button actionChangerBackGround = (Button) paneButtonBackGround.getChildren().get(0);
+		actionChangerBackGround.setOnAction(new EventHandler<ActionEvent>() 
 		{
             @Override public void handle(ActionEvent e) 
             {
-            	System.out.println("handle");
-            	controleur.notifierClicPartieMonstre();
-            	urlImg = "vue/decoration/semis/carotte.png"; // TODO changer les images
-            	allumerSelection(actionChoisirCarrote);
+            	System.out.println("Handle.actionChangerBackGround");
+            	// TODO Handler change backGround
             }
         });
-		
-			
-		Rectangle carte = (Rectangle)lookup(FxmlId.CARTE);
-		carte.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent arg0) {
-				System.out.println("carte handle");
-            	controleur.notifierCarte();
-            	double x = arg0.getX();
-            	double y = arg0.getY();
-            	System.out.println("x / y: "+ x+" / "+y);
-            	controleur.notifierClic(x, y);
-			}
-			
-		});
 		
 	}
 	
@@ -81,5 +72,9 @@ public class VueMonstronator extends Vue{
 		composantPlacee.setY(y-50);
 		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDURE);
 		cloture.getChildren().add(composantPlacee);
+	}
+	
+	public void changerBackGround() {
+		// TODO changer l'image du Rectangle fx:id="jardinTerre" et refaire sont id son id pour backgroundMonstre
 	}
 }

@@ -14,15 +14,18 @@ import modele.PartieMonstreModele;
 
 public class PartieMonstreTabPane extends TabPane{
 	
-	private final PartieMonstreModele PARTIESMONSTRE = new PartieMonstreModele();
+	private PartieMonstreModele PARTIESMONSTRE;
 	
 	
 	public PartieMonstreTabPane() {
 		super();
+		PARTIESMONSTRE = new PartieMonstreModele();
+		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
+		this.setId("tabPanneau");
 		creationTabs();
 	}
 	
-	private void creationTabs() {
+	public void creationTabs() {
 		Tab temp;
 		AnchorPane temp_Anchor;
 		for (File NomTab : PARTIESMONSTRE.getParties_Monstre()) {
@@ -41,7 +44,7 @@ public class PartieMonstreTabPane extends TabPane{
 		}
 	}
 	
-	private static void remplirTab(List<File> parties_Monstre, Tab tab) {
+	private void remplirTab(List<File> parties_Monstre, Tab tab) {
 		AnchorPane tabAnchorPane = (AnchorPane)((tab.getContent()).lookup("#Anchor-"+(tab.getId())));
 		String tabName = tab.getId();
 		GridPane gridPane = new GridPane();
@@ -60,8 +63,6 @@ public class PartieMonstreTabPane extends TabPane{
 			}
 			counter++;
 		}
-		
-		System.out.println("cafe");
 		
 	}
 	
