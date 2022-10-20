@@ -25,7 +25,7 @@
                <children>
                   <AnchorPane id="background-monstre" fx:id="backgroundMonstre" layoutX="494.0" layoutY="-1.0" prefHeight="516.0" prefWidth="771.0">
                      <children>
-                        <ImageView fitHeight="517.0" fitWidth="772.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="517.0" fitWidth="772.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
                   <AnchorPane id="panneau-membre" fx:id="panneauMembre" layoutX="15.0" layoutY="2.0" prefHeight="481.0" prefWidth="462.0" />

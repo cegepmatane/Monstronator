@@ -24,7 +24,7 @@ public class VuePartieMonstre extends TabPane{
 		PARTIESMONSTRE = new VueModelePartieMonstre();
 		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 		this.setId("tabPanneau");
-		this.setTabMinWidth(96);
+		this.setTabMinWidth(93.6);
 		creationTabs();
 	}
 	
