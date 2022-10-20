@@ -11,18 +11,17 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import modele.PartieMonstreModele;
 
-public class PartieMonstreTabPane extends TabPane{
+public class VuePartieMonstre extends TabPane{
 	
-	private PartieMonstreModele PARTIESMONSTRE;
+	private VueModelePartieMonstre PARTIESMONSTRE;
 	private ControleurMonstronator controleur;
 	
 	
-	public PartieMonstreTabPane() {
+	public VuePartieMonstre() {
 		super();
 		this.controleur = new ControleurMonstronator();
-		PARTIESMONSTRE = new PartieMonstreModele();
+		PARTIESMONSTRE = new VueModelePartieMonstre();
 		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 		this.setId("tabPanneau");
 		creationTabs();

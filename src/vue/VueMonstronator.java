@@ -6,14 +6,10 @@ import controleur.ControleurMonstronator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
-import vue.FxmlId;
 
 public class VueMonstronator extends Vue{
 
@@ -37,7 +33,7 @@ public class VueMonstronator extends Vue{
 		
 		// creation et remplisage du tabPane
 		AnchorPane AnchorPaneMonstreTabPAne = (AnchorPane)lookup("#panneau-membre");
-		PartieMonstreTabPane paneauPartieMonstre = new PartieMonstreTabPane();
+		VuePartieMonstre paneauPartieMonstre = new VuePartieMonstre();
 		AnchorPaneMonstreTabPAne.getChildren().add(paneauPartieMonstre);
 		
 		Pane paneButtonBackGround = (Pane)lookup("#boutton-changer-bg");

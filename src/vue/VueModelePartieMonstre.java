@@ -1,12 +1,11 @@
-package modele;
+package vue;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import dao.PartieMonstreDAO;
 
-public class PartieMonstreModele {
+public class VueModelePartieMonstre {
 	
 	File folder_Monstre;
 	
@@ -16,7 +15,7 @@ public class PartieMonstreModele {
     
     PartieMonstreDAO dao;
     
-    public PartieMonstreModele () {
+    public VueModelePartieMonstre() {
     	dao = new PartieMonstreDAO();
         folder_Monstre = dao.getFolder_Monstre();
     	parties_Monstre = dao.getParties_Monstre();
@@ -32,8 +31,4 @@ public class PartieMonstreModele {
 	public List<List<File>> getListe_contenant_liste_parti_monstre() {
 		return liste_contenant_liste_parti_monstre;
 	}
-    
-    
-    
-    
 }
