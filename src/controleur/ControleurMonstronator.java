@@ -16,6 +16,7 @@ public class ControleurMonstronator extends Controleur{
 	public ControleurMonstronator()
 	{
 		Logger.logMsg(Logger.INFO, "new ControleurMonstronator()");
+		
 	}
 	
 	public void initialiser()
@@ -39,6 +40,10 @@ public class ControleurMonstronator extends Controleur{
 	
 	public void notifierBackground() {
 		vue.changerBackGround(BGModele.getNextBackground());
+	}
+	
+	public void setDefaultBackGround() {
+		vue.changerBackGround(BGModele.getSelectedBackground());
 	}
 	
 

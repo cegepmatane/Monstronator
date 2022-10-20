@@ -53,9 +53,11 @@ public class VueMonstronator extends Vue{
             }
         });
 		
+		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
 		BackGroundImageView = (ImageView) BackGroundAnchor.getChildren().get(0);
-	}
+		// controleur.setDefaultBackGround();
+		}
 	
 	private Button selectionAllume = null;
 	
