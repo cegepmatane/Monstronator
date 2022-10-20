@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -73,10 +75,18 @@ public class VuePartieMonstre extends TabPane{
 	private Button creerButton(File partieMonstre, String tabname, int counter) {
 		Button button = new Button();
 		String id = "button-"+tabname+"-"+counter;
-		button.setId(id);
+		ImageView buttonImage = new ImageView();
+		System.out.println((partieMonstre.getPath()).substring(4));
+		buttonImage.setImage(new Image((partieMonstre.getPath()).substring(4)));
+		buttonImage.setId(id+"-ImageView");
+		buttonImage.setPickOnBounds(true);
+		buttonImage.setPreserveRatio(true);
+		button.setGraphic(buttonImage);
 		button.setOnAction(new ClicBouttonPanneau(this.controleur, id));
 		return button;
 	}
+	
+	
 
 	public static class ClicBouttonPanneau implements EventHandler<ActionEvent> {
 		ControleurMonstronator controleur;
