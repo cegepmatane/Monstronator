@@ -9,7 +9,6 @@ import java.util.Objects;
 public class ImageFondDAO {
 	
 	File fichierImage;
-	
 	List<File> listeImages;
 	
 	public ImageFondDAO() {
