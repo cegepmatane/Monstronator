@@ -43,7 +43,7 @@ public class VuePartieMonstre extends TabPane{
 			System.out.println(NomTab.getName());
 		}
 		int counter = 0;
-		for (List<File> partie_Monstre : PARTIESMONSTRE.getListe_contenant_liste_parti_monstre()) {
+		for (List<File> partie_Monstre : PARTIESMONSTRE.getListe_contenant_liste_partie_monstre()) {
 			remplirTab(partie_Monstre
 					, this.getTabs().get(counter));
 			counter++;
@@ -75,6 +75,7 @@ public class VuePartieMonstre extends TabPane{
 	private Button creerButton(File partieMonstre, String tabname, int counter) {
 		Button button = new Button();
 		String id = "button-"+tabname+"-"+counter;
+		button.setId(id);
 		ImageView buttonImage = new ImageView();
 		System.out.println((partieMonstre.getPath()).substring(4));
 		buttonImage.setImage(new Image((partieMonstre.getPath()).substring(4)));
