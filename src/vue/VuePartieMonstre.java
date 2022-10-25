@@ -78,12 +78,19 @@ public class VuePartieMonstre extends TabPane{
 		button.setId(id);
 		ImageView buttonImage = new ImageView();
 		System.out.println((partieMonstre.getPath()).substring(4));
-		buttonImage.setImage(new Image((partieMonstre.getPath()).substring(4)));
+		Image _temp = new Image((partieMonstre.getPath()).substring(4));
+		System.out.println(_temp.getUrl());
+		buttonImage.setImage(_temp);
+		buttonImage.setId(_temp.getUrl());	
 		buttonImage.setId(id+"-ImageView");
+		System.out.println(id+"-ImageView");
 		buttonImage.setPickOnBounds(true);
 		buttonImage.setPreserveRatio(true);
 		button.setGraphic(buttonImage);
-		button.setOnAction(new ClicBouttonPanneau(this.controleur, id));
+		System.out.println("Button Graphic : " + button.getGraphic().getId());
+		button.setOnAction(new ClicBouttonPanneau(this.controleur, id, button));
+//		System.out.println((partieMonstre.getPath()).substring(4));
+//		button.setStyle("-fx-border-style: none; -fx-border-insets: 0;  -fx-background-image: url("+(partieMonstre.getPath()).substring(4)+");");
 		return button;
 	}
 	
@@ -92,16 +99,19 @@ public class VuePartieMonstre extends TabPane{
 	public static class ClicBouttonPanneau implements EventHandler<ActionEvent> {
 		ControleurMonstronator controleur;
 		String id;
+		Button button;
 
-		public ClicBouttonPanneau(ControleurMonstronator controleur, String id)
+		public ClicBouttonPanneau(ControleurMonstronator controleur, String id, Button button)
 		{
 			this.controleur = controleur;
 			this.id = id;
+			this.button = button;
 		}
 
 		public void handle(ActionEvent e)
 		{
 			System.out.println("action ClicBouttonPanneau - handle("+id+") ");
+			System.out.println("button image " + button.getGraphic().getId());
 			controleur.notifierClicPartieMonstre();
 		}
 	}
