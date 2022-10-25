@@ -7,6 +7,7 @@ import architecture.Vue;
 import controleur.ControleurMonstronator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,6 +24,9 @@ public class VueMonstronator extends Vue{
 	
 	private AnchorPane BackGroundAnchor;
 	private ImageView BackGroundImageView;
+	
+	//this variable needs to go in the Main class, outside of the start() method
+	private long lastRefreshTime = 0;
 	
 	
 	private VueMonstronator()
@@ -57,6 +61,16 @@ public class VueMonstronator extends Vue{
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
 		BackGroundImageView = (ImageView) BackGroundAnchor.getChildren().get(0);
 		// controleur.setDefaultBackGround();
+		
+		// Scene refresh
+		//this goes after you've defined your scene, but before you display your stage
+		Scene scene = BackGroundAnchor.getScene();
+		scene.addPreLayoutPulseListener(() -> {
+		    long refreshTime = System.nanoTime();
+		    System.out.println("Scene refreshed, refresh time: "+ (refreshTime - lastRefreshTime));
+		    lastRefreshTime = refreshTime;
+		});
+		
 		}
 	
 	private Button selectionAllume = null;

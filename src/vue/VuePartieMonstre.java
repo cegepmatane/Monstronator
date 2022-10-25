@@ -6,6 +6,7 @@ import java.util.List;
 import controleur.ControleurMonstronator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -57,25 +58,28 @@ public class VuePartieMonstre extends TabPane{
 		gridPane.setId("GridPane-"+tabName);
 		tabAnchorPane.getChildren().add(gridPane);
 		
-		int x = 0;
+		int x = 1;
 		int y = 0;
 		int counter = 0;
 		for (File partieMonstre : parties_Monstre) {
-			gridPane.add(creerButton(partieMonstre, tabName, counter), x, y);
+			gridPane.add(creerButton(partieMonstre, tabName, counter, gridPane), x, y);
 			x++;
-			if (x == 4) {
+			if (x == 5) {
 				y++;
-				x %= 3;
+				x %= 4;
 			}
 			counter++;
 		}
 		
+		
 	}
 	
-	private Button creerButton(File partieMonstre, String tabname, int counter) {
+	private Button creerButton(File partieMonstre, String tabname, int counter, GridPane gridPane) {
+		// set button
 		Button button = new Button();
 		String id = "button-"+tabname+"-"+counter;
 		button.setId(id);
+		// set graphic
 		ImageView buttonImage = new ImageView();
 		System.out.println((partieMonstre.getPath()).substring(4));
 		Image _temp = new Image((partieMonstre.getPath()).substring(4));
@@ -87,10 +91,14 @@ public class VuePartieMonstre extends TabPane{
 		buttonImage.setPickOnBounds(true);
 		buttonImage.setPreserveRatio(true);
 		button.setGraphic(buttonImage);
+		button.setMinWidth(100);
+		button.setMinHeight(100);
 		System.out.println("Button Graphic : " + button.getGraphic().getId());
 		button.setOnAction(new ClicBouttonPanneau(this.controleur, id, button));
-//		System.out.println((partieMonstre.getPath()).substring(4));
-//		button.setStyle("-fx-border-style: none; -fx-border-insets: 0;  -fx-background-image: url("+(partieMonstre.getPath()).substring(4)+");");
+		// button text
+		button.setText(id);
+		// grid pane margin
+		gridPane.setMargin(button,new Insets(1.8, 1.8, 1.8, 1.8) );
 		return button;
 	}
 	
