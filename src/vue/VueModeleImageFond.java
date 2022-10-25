@@ -3,7 +3,7 @@ package vue;
 import java.io.File;
 import java.util.List;
 
-import dao.BackGroundDAO;
+import dao.ImageFondDAO;
 
 public class VueModeleImageFond {
 
@@ -20,12 +20,12 @@ public class VueModeleImageFond {
 	
 	int selection = 0;
 	
-	BackGroundDAO dao;
+	ImageFondDAO dao;
     
     public VueModeleImageFond() {
-    	dao = new BackGroundDAO();
-    	dossierImage = dao.getFolder_BackGround();
-    	listeImages = dao.getImages_BackGround_List();
+    	dao = new ImageFondDAO();
+    	dossierImage = dao.getFichierImage();
+    	listeImages = dao.getListeImages();
     }
 	
 	public File getFondSelectionne() {
