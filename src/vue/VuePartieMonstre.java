@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.SVGPath;
 
 public class VuePartieMonstre extends TabPane{
 	
@@ -80,6 +81,8 @@ public class VuePartieMonstre extends TabPane{
 		String id = "button-"+tabname+"-"+counter;
 		button.setId(id);
 		// set graphic
+		
+		// image 
 		ImageView buttonImage = new ImageView();
 		System.out.println((partieMonstre.getPath()).substring(4));
 		Image _temp = new Image((partieMonstre.getPath()).substring(4));
