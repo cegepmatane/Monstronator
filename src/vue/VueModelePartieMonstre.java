@@ -22,7 +22,7 @@ public class VueModelePartieMonstre {
     }
 
 
-	public List<File> getParties_Monstre()
+	public List<File> getPartiesMonstre()
 	{
 		System.out.println("VueModelerPartieMonstre.getParties_Monstre()");
 		return parties_Monstre;
@@ -30,6 +30,7 @@ public class VueModelePartieMonstre {
 
 	public List<List<File>> getListeContenantListePartieMonstre()
 	{
+		System.out.println("VueModelePartieMonstre.getListeContenantListePartieMonstre()");
 		return listeContenantListePartieMonstre;
 	}
 }

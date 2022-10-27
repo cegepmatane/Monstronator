@@ -7,7 +7,6 @@ import architecture.Vue;
 import controleur.ControleurMonstronator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -99,11 +98,11 @@ public class VueMonstronator extends Vue{
 		this.selectionAllume.setStyle("-fx-background-color:yellow;-fx-opacity:0.6;");
 	}
 	
-	public void setUrlImageSelectioner(String urlString) {
+	public void setUrlImageSelectionee(String urlString) {
 		urlImg = urlString;
 	}
 	
-	public String GetUrlImageSelectioner() {
+	public String GetUrlImageSelectionee() {
 		return urlImg;
 	}
 	

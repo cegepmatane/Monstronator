@@ -14,127 +14,129 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.SVGPath;
 
 public class VuePartieMonstre extends TabPane{
 	
-	private VueModelePartieMonstre PARTIESMONSTRE;
+	private VueModelePartieMonstre partieMonstre;
 	private ControleurMonstronator controleur;
 	
 	
-	public VuePartieMonstre() {
+	public VuePartieMonstre()
+	{
 		super();
 		this.controleur = new ControleurMonstronator();
-		PARTIESMONSTRE = new VueModelePartieMonstre();
+		partieMonstre = new VueModelePartieMonstre();
 		this.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 		this.setId("tabPanneau");
 		this.setTabMinWidth(93.6);
-		creationTabs();
+		creationOngets();
 	}
 	
-	public void creationTabs() {
-		Tab temp;
-		AnchorPane temp_Anchor;
-		for (File NomTab : PARTIESMONSTRE.getParties_Monstre()) {
-			temp_Anchor = new AnchorPane();
-			temp_Anchor.setId("Anchor-"+NomTab.getName());
-			temp = new Tab(NomTab.getName(), temp_Anchor);
-			temp.setText(NomTab.getName());
-			temp.setId(NomTab.getName());
-			this.getTabs().add(temp);
+	public void creationOngets()
+	{
+		Tab tempTab;
+		AnchorPane tempAnchor;
+		for (File NomTab : partieMonstre.getPartiesMonstre()) {
+			tempAnchor = new AnchorPane();
+			tempAnchor.setId("Anchor-"+NomTab.getName());
+			tempTab = new Tab(NomTab.getName(), tempAnchor);
+			tempTab.setText(NomTab.getName());
+			tempTab.setId(NomTab.getName());
+			this.getTabs().add(tempTab);
 			System.out.println(NomTab.getName());
 		}
 		int counter = 0;
-		for (List<File> partie_Monstre : PARTIESMONSTRE.getListeContenantListePartieMonstre()) {
-			remplirTab(partie_Monstre
-					, this.getTabs().get(counter));
+		for (List<File> partieMonstre : partieMonstre.getListeContenantListePartieMonstre()) {
+			remplirOnglet(partieMonstre, this.getTabs().get(counter));
 			counter++;
 		}
 	}
 	
-	private void remplirTab(List<File> parties_Monstre, Tab tab) {
-		AnchorPane tabAnchorPane = (AnchorPane)((tab.getContent()).lookup("#Anchor-"+(tab.getId())));
-		String tabName = tab.getId();
+	private void remplirOnglet(List<File> partiesMonstre, Tab onglet)
+	{
+		AnchorPane ongletAnchorPane = (AnchorPane)((onglet.getContent()).lookup("#Anchor-"+(onglet.getId())));
+		String nomOnglet = onglet.getId();
 		GridPane gridPane = new GridPane();
-		gridPane.setId("GridPane-"+tabName);
-		tabAnchorPane.getChildren().add(gridPane);
+		gridPane.setId("GridPane-"+nomOnglet);
+		ongletAnchorPane.getChildren().add(gridPane);
 		
 		int x = 1;
 		int y = 0;
-		int counter = 0;
-		for (File partieMonstre : parties_Monstre) {
-			gridPane.add(creerButton(partieMonstre, tabName, counter, gridPane), x, y);
+		int numeroBouton = 0;
+		for (File partieMonstre : partiesMonstre) {
+			gridPane.add(creerBoutton(partieMonstre, nomOnglet, numeroBouton), x, y);
 			x++;
 			if (x == 5) {
 				y++;
 				x %= 4;
 			}
-			counter++;
+			numeroBouton++;
 		}
-		
-		
 	}
 	
-	private Button creerButton(File partieMonstre, String tabname, int counter, GridPane gridPane) {
+	private Button creerBoutton(File partieMonstre, String nomOnglet, int numeroBouton)
+	{
 		// set button
-		Button button = new Button();
-		String id = "button-"+tabname+"-"+counter;
-		button.setId(id);
+		Button bouton = new Button();
+		String id = "button-"+nomOnglet+"-"+numeroBouton;
+		bouton.setId(id);
 		// set graphic
 		
 		// image 
-		ImageView buttonImage = new ImageView();
-		System.out.println((partieMonstre.getPath()).substring(4));
-		Image _temp = new Image((partieMonstre.getPath()).substring(4));
-		System.out.println(_temp.getUrl());
-		buttonImage.setImage(_temp);
-		buttonImage.setId(_temp.getUrl());	
-		buttonImage.setId(id+"-ImageView");
-		System.out.println(id+"-ImageView");
-		buttonImage.setPickOnBounds(true);
-		buttonImage.setPreserveRatio(true);
-		buttonImage.setFitHeight(80);
-		buttonImage.setFitWidth(80);
-		button.setGraphic(buttonImage);
-		button.setMaxHeight(100);
-		button.setMaxWidth(100);
-		System.out.println("Button Graphic : " + button.getGraphic().getId());
-		button.setOnAction(new ClicBouttonPanneau(this.controleur, id, button, (partieMonstre.getPath()).substring(4)));
-		// grid pane margin
-		gridPane.setMargin(button,new Insets(1.8, 1.8, 1.8, 1.8) );
-		return button;
-	}
-	
-	
+		ImageView imageBouton = new ImageView();
 
-	public static class ClicBouttonPanneau implements EventHandler<ActionEvent> {
+		System.out.println((partieMonstre.getPath()).substring(4));
+		Image tempImage = new Image((partieMonstre.getPath()).substring(4));
+		System.out.println(tempImage.getUrl());
+
+		imageBouton.setImage(tempImage);
+		imageBouton.setId(tempImage.getUrl());
+		imageBouton.setId(id+"-ImageView");
+		System.out.println(id+"-ImageView");
+
+		imageBouton.setPickOnBounds(true);
+		imageBouton.setPreserveRatio(true);
+		imageBouton.setFitHeight(80);
+		imageBouton.setFitWidth(80);
+
+		bouton.setGraphic(imageBouton);
+		bouton.setMaxHeight(100);
+		bouton.setMaxWidth(100);
+		System.out.println("Button Graphic : " + bouton.getGraphic().getId());
+		bouton.setOnAction(new ClicBoutonPanneau(this.controleur, id, bouton, (partieMonstre.getPath()).substring(4)));
+
+		// grid pane margin
+		GridPane.setMargin(bouton,new Insets(1.8, 1.8, 1.8, 1.8) );
+
+		return bouton;
+	}
+
+	public static class ClicBoutonPanneau implements EventHandler<ActionEvent> {
 		ControleurMonstronator controleur;
 		String id;
-		String ImgURL;
-		Button button;
+		String imageURL;
+		Button bouton;
 
-		public ClicBouttonPanneau(ControleurMonstronator controleur, String id, Button button, String ImgURL)
+		public ClicBoutonPanneau(ControleurMonstronator controleur, String id, Button bouton, String imageURL)
 		{
 			this.controleur = controleur;
 			this.id = id;
-			this.button = button;
-			this.ImgURL = ImgURL;
-			
+			this.bouton = bouton;
+			this.imageURL = imageURL;
 		}
 
 		public void handle(ActionEvent e)
 		{
-			System.out.println("action ClicBouttonPanneau - handle("+id+") ");
-			System.out.println("button image " + button.getGraphic().getId());
+			System.out.println("action ClicBoutonPanneau - handle("+id+") ");
+			System.out.println("button image " + bouton.getGraphic().getId());
 			controleur.notifierClicPartieMonstre();
-			if (VueMonstronator.instance.GetUrlImageSelectioner().equals(ImgURL)) {
-				VueMonstronator.instance.setUrlImageSelectioner("");
+			if (VueMonstronator.instance.GetUrlImageSelectionee().equals(imageURL))
+			{
+				VueMonstronator.instance.setUrlImageSelectionee("");
 			} else {
-				VueMonstronator.instance.setUrlImageSelectioner(ImgURL);			
+				VueMonstronator.instance.setUrlImageSelectionee(imageURL);
 			}
-			
 		}
 	}
-
 }
 
