@@ -61,9 +61,10 @@ public class VueMonstronator extends Vue{
 		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
 		BackGroundImageView = (ImageView) BackGroundAnchor.getChildren().get(0);
+		Rectangle RectangleClickPartie = (Rectangle) BackGroundAnchor.getChildren().get(1);
 		
 
-		BackGroundImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		RectangleClickPartie.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent arg0) {
@@ -121,18 +122,18 @@ public class VueMonstronator extends Vue{
 	public void changerBackGround(File file) {
 		System.out.println((file.getPath()).substring(4));
 		BackGroundImageView.setImage(new Image((file.getPath()).substring(4)));
-		BackGroundImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		//BackGroundImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-			@Override
-			public void handle(MouseEvent arg0) {
-				System.out.print("Placer Handle: ");
-            	double x = arg0.getX();
-            	double y = arg0.getY();
-            	System.out.println("x / y: "+ x+" / "+y);
-            	controleur.notifierClic(x, y);
-			}
+		//	@Override
+		//	public void handle(MouseEvent arg0) {
+		//		System.out.print("Placer Handle: ");
+        //    	double x = arg0.getX();
+        //    	double y = arg0.getY();
+        //    	System.out.println("x / y: "+ x+" / "+y);
+        //    	controleur.notifierClic(x, y);
+		//	}
 
 			
-		});
+		//});
 	}
 }
