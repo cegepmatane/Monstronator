@@ -129,7 +129,7 @@ public class VuePartieMonstre extends TabPane{
 		{
 			System.out.println("action ClicBoutonPanneau - handle("+id+") ");
 			System.out.println("button image " + bouton.getGraphic().getId());
-			controleur.notifierClicPartieMonstre();
+			//controleur.notifierClicPartieMonstre();
 			if (VueMonstronator.instance.GetUrlImageSelectionee().equals(imageURL))
 			{
 				VueMonstronator.instance.setUrlImageSelectionee("");

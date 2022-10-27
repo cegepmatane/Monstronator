@@ -9,9 +9,7 @@ import vue.VueMonstronator;
 
 public class ControleurMonstronator extends Controleur{
 	private VueMonstronator  vue;
-	private VueModeleImageFond BGModele;
-	
-	//protected LEGUME legumeChoisis;
+	private VueModeleImageFond modeleImageFond;
 
 	public ControleurMonstronator()
 	{
@@ -22,25 +20,15 @@ public class ControleurMonstronator extends Controleur{
 	public void initialiser()
 	{
 		 vue = VueMonstronator.getInstance();
-		 BGModele = VueModeleImageFond.getInstance();
-	}
-
-	public void notifierCarte() {
-		System.out.println("notifier carte");
-		
+		 modeleImageFond = VueModeleImageFond.getInstance();
 	}
 
 	public void notifierClic(double x, double y) {
 		vue.afficherSelection(x, y);
 	}
-
-	public void notifierClicPartieMonstre() {
-		// TODO Auto-generated method stub
-	}
 	
-	public void notifierBackground() {
-		vue.changerBackGround(BGModele.getProchainFond());
+	public void notifierBackground()
+	{
+		vue.changerBackGround(modeleImageFond.getProchainFond());
 	}
-	
-
 }
