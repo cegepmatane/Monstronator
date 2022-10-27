@@ -99,7 +99,7 @@ public class VuePartieMonstre extends TabPane{
 		button.setMaxHeight(100);
 		button.setMaxWidth(100);
 		System.out.println("Button Graphic : " + button.getGraphic().getId());
-		button.setOnAction(new ClicBouttonPanneau(this.controleur, id, button));
+		button.setOnAction(new ClicBouttonPanneau(this.controleur, id, button, (partieMonstre.getPath()).substring(4)));
 		// grid pane margin
 		gridPane.setMargin(button,new Insets(1.8, 1.8, 1.8, 1.8) );
 		return button;
@@ -110,13 +110,16 @@ public class VuePartieMonstre extends TabPane{
 	public static class ClicBouttonPanneau implements EventHandler<ActionEvent> {
 		ControleurMonstronator controleur;
 		String id;
+		String ImgURL;
 		Button button;
 
-		public ClicBouttonPanneau(ControleurMonstronator controleur, String id, Button button)
+		public ClicBouttonPanneau(ControleurMonstronator controleur, String id, Button button, String ImgURL)
 		{
 			this.controleur = controleur;
 			this.id = id;
 			this.button = button;
+			this.ImgURL = ImgURL;
+			
 		}
 
 		public void handle(ActionEvent e)
@@ -124,6 +127,12 @@ public class VuePartieMonstre extends TabPane{
 			System.out.println("action ClicBouttonPanneau - handle("+id+") ");
 			System.out.println("button image " + button.getGraphic().getId());
 			controleur.notifierClicPartieMonstre();
+			if (VueMonstronator.instance.GetUrlImageSelectioner().equals(ImgURL)) {
+				VueMonstronator.instance.setUrlImageSelectioner("");
+			} else {
+				VueMonstronator.instance.setUrlImageSelectioner(ImgURL);			
+			}
+			
 		}
 	}
 

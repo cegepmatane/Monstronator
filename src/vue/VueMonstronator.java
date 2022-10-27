@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -20,7 +21,7 @@ public class VueMonstronator extends Vue{
 	protected ControleurMonstronator  controleur;
 	protected static VueMonstronator  instance = null; 
 	public static VueMonstronator  getInstance() {if (null == instance)instance = new VueMonstronator(); return VueMonstronator.instance;};
-	private String urlImg;
+	private String urlImg = "";
 	
 	private AnchorPane BackGroundAnchor;
 	private ImageView BackGroundImageView;
@@ -60,7 +61,21 @@ public class VueMonstronator extends Vue{
 		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
 		BackGroundImageView = (ImageView) BackGroundAnchor.getChildren().get(0);
-		// controleur.setDefaultBackGround();
+		
+
+		BackGroundImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent arg0) {
+				System.out.print("Placer Handle: ");
+            	double x = arg0.getX();
+            	double y = arg0.getY();
+            	System.out.println("x / y: "+ x+" / "+y);
+            	controleur.notifierClic(x, y);
+			}
+
+			
+		});
 		
 		// Scene refresh
 		/*
@@ -81,22 +96,43 @@ public class VueMonstronator extends Vue{
 		if(selectionAllume != null) this.selectionAllume.setStyle("-fx-background-color:transparent;-fx-opacity:1;");
 		selectionAllume = legume;
 		this.selectionAllume.setStyle("-fx-background-color:yellow;-fx-opacity:0.6;");
-		}
+	}
 	
+	public void setUrlImageSelectioner(String urlString) {
+		urlImg = urlString;
+	}
+	
+	public String GetUrlImageSelectioner() {
+		return urlImg;
+	}
 	
 	public void afficherSelection(double x, double y) {
-		ImageView composantPlacee = new ImageView();
-		composantPlacee.setImage(new Image(urlImg));
-		composantPlacee.setFitHeight(100);
-		composantPlacee.setPreserveRatio(true);
-		composantPlacee.setX(x - (composantPlacee.getBoundsInParent().getWidth() / 2));
-		composantPlacee.setY(y - 50);
-		AnchorPane cloture = (AnchorPane)lookup(FxmlId.BORDURE);
-		cloture.getChildren().add(composantPlacee);
+		if (!urlImg.isBlank()) {
+			ImageView composantPlacee = new ImageView();
+			composantPlacee.setImage(new Image(urlImg));
+			composantPlacee.setFitHeight(100);
+			composantPlacee.setPreserveRatio(true);
+			composantPlacee.setX(x - (composantPlacee.getBoundsInParent().getWidth() / 2));
+			composantPlacee.setY(y - 50);
+			BackGroundAnchor.getChildren().add(composantPlacee);
+		}
 	}
 	
 	public void changerBackGround(File file) {
 		System.out.println((file.getPath()).substring(4));
 		BackGroundImageView.setImage(new Image((file.getPath()).substring(4)));
+		BackGroundImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent arg0) {
+				System.out.print("Placer Handle: ");
+            	double x = arg0.getX();
+            	double y = arg0.getY();
+            	System.out.println("x / y: "+ x+" / "+y);
+            	controleur.notifierClic(x, y);
+			}
+
+			
+		});
 	}
 }

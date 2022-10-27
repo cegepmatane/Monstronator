@@ -42,9 +42,5 @@ public class ControleurMonstronator extends Controleur{
 		vue.changerBackGround(BGModele.getProchainFond());
 	}
 	
-	public void setDefaultBackGround() {
-		vue.changerBackGround(BGModele.getFondSelectionne());
-	}
-	
 
 }
