@@ -93,13 +93,13 @@ public class VuePartieMonstre extends TabPane{
 		System.out.println(id+"-ImageView");
 		buttonImage.setPickOnBounds(true);
 		buttonImage.setPreserveRatio(true);
+		buttonImage.setFitHeight(80);
+		buttonImage.setFitWidth(80);
 		button.setGraphic(buttonImage);
-		button.setMinWidth(100);
-		button.setMinHeight(100);
+		button.setMaxHeight(100);
+		button.setMaxWidth(100);
 		System.out.println("Button Graphic : " + button.getGraphic().getId());
 		button.setOnAction(new ClicBouttonPanneau(this.controleur, id, button));
-		// button text
-		button.setText(id);
 		// grid pane margin
 		gridPane.setMargin(button,new Insets(1.8, 1.8, 1.8, 1.8) );
 		return button;

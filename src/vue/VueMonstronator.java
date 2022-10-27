@@ -63,13 +63,14 @@ public class VueMonstronator extends Vue{
 		// controleur.setDefaultBackGround();
 		
 		// Scene refresh
-		//this goes after you've defined your scene, but before you display your stage
+		/*
 		Scene scene = BackGroundAnchor.getScene();
 		scene.addPreLayoutPulseListener(() -> {
 		    long refreshTime = System.nanoTime();
 		    System.out.println("Scene refreshed, refresh time: "+ (refreshTime - lastRefreshTime));
 		    lastRefreshTime = refreshTime;
 		});
+		*/
 		
 		}
 	
