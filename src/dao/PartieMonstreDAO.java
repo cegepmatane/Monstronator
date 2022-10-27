@@ -56,7 +56,7 @@ public class PartieMonstreDAO {
 		return parties_Monstre;
 	}
 
-	public List<List<File>> getListe_contenant_liste_partie_monstre() {
+	public List<List<File>> getListeContenantListePartieMonstre() {
 		return liste_contenant_liste_parti_monstre;
 	}
 	
