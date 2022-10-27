@@ -45,7 +45,7 @@ public class VuePartieMonstre extends TabPane{
 			System.out.println(NomTab.getName());
 		}
 		int counter = 0;
-		for (List<File> partie_Monstre : PARTIESMONSTRE.getListe_contenant_liste_partie_monstre()) {
+		for (List<File> partie_Monstre : PARTIESMONSTRE.getListeContenantListePartieMonstre()) {
 			remplirTab(partie_Monstre
 					, this.getTabs().get(counter));
 			counter++;
