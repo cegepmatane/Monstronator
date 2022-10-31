@@ -28,15 +28,13 @@ public class VueModeleImageFond {
     	listeImages = dao.getListeImages();
     }
 	
-	public File getFondSelectionne() {
-		return listeImages.get(selection);
-	}
-	
 	public File getProchainFond() {
 		selection = (selection + 1) % listeImages.size();
 		return listeImages.get(selection);
 	}
 
+
+	//public File getFondSelectionne() { return listeImages.get(selection); }
 	//public File getDossierImage() { return dossierImage; }
 	//public List<File> getListeImages() { return listeImages; }
 }
