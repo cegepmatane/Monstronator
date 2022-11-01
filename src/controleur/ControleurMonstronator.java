@@ -34,4 +34,9 @@ public class ControleurMonstronator extends Controleur{
 	{
 		vue.changerBackGround(modeleImageFond.getProchainFond());
 	}
+
+	public void notifierClicModifier(String identifiant)
+	{
+		System.out.println("notifierClicModifier("+identifiant+");");
+	}
 }

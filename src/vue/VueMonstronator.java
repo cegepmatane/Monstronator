@@ -21,7 +21,9 @@ public class VueMonstronator extends Vue{
 	protected static VueMonstronator  instance = null; 
 	public static VueMonstronator  getInstance() {if (null == instance)instance = new VueMonstronator(); return VueMonstronator.instance;};
 	private String urlImg = "";
-	
+
+	private int indexPartieMonstre;
+
 	private AnchorPane BackGroundAnchor;
 	private ImageView BackGroundImageView;
 	
@@ -48,14 +50,10 @@ public class VueMonstronator extends Vue{
 		
 		Pane paneButtonBackGround = (Pane)lookup("#boutton-changer-bg");
 		Button actionChangerBackGround = (Button) paneButtonBackGround.getChildren().get(0);
-		actionChangerBackGround.setOnAction(new EventHandler<ActionEvent>() 
-		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	System.out.println("Handle.actionChangerBackGround");
-            	controleur.notifierBackground();
-            }
-        });
+		actionChangerBackGround.setOnAction(e -> {
+			System.out.println("Handle.actionChangerBackGround");
+			controleur.notifierBackground();
+		});
 		
 		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
@@ -63,18 +61,14 @@ public class VueMonstronator extends Vue{
 		Rectangle RectangleClickPartie = (Rectangle) BackGroundAnchor.getChildren().get(1);
 		
 
-		RectangleClickPartie.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		RectangleClickPartie.setOnMouseClicked(arg0 -> {
+			System.out.print("Placer Handle: ");
+			double x = arg0.getX();
+			double y = arg0.getY();
+			System.out.println("x / y: "+ x+" / "+y);
+			controleur.notifierClic(x, y);
 
-			@Override
-			public void handle(MouseEvent arg0) {
-				System.out.print("Placer Handle: ");
-            	double x = arg0.getX();
-            	double y = arg0.getY();
-            	System.out.println("x / y: "+ x+" / "+y);
-            	controleur.notifierClic(x, y);
-			}
 
-			
 		});
 		
 		// Scene refresh
@@ -87,7 +81,7 @@ public class VueMonstronator extends Vue{
 		});
 		*/
 		
-		}
+	}
 	
 	private Button selectionAllume = null;
 	
@@ -114,6 +108,14 @@ public class VueMonstronator extends Vue{
 			composantPlacee.setPreserveRatio(true);
 			composantPlacee.setX(x - (composantPlacee.getBoundsInParent().getWidth() / 2));
 			composantPlacee.setY(y - 50);
+
+			String identifiant = "composantPlacee-"+indexPartieMonstre;
+			composantPlacee.setId(identifiant);
+			composantPlacee.setOnMouseClicked(e ->
+					controleur.notifierClicModifier(identifiant));
+			indexPartieMonstre++;
+			System.out.println("Identifiant = " + identifiant);
+
 			BackGroundAnchor.getChildren().add(composantPlacee);
 		}
 	}
