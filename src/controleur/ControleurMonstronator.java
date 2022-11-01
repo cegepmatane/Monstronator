@@ -38,5 +38,7 @@ public class ControleurMonstronator extends Controleur{
 	public void notifierClicModifier(String identifiant)
 	{
 		System.out.println("notifierClicModifier("+identifiant+");");
+
+		vue.changerCouleur();
 	}
 }

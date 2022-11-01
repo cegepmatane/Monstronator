@@ -93,10 +93,6 @@ public class VuePartieMonstre extends TabPane{
 		Image tempImage = new Image((partieMonstre.getPath()).substring(4));
 		System.out.println(tempImage.getUrl());
 
-//		ColorAdjust colorAdjust = new ColorAdjust();
-//		colorAdjust.setHue(1);
-//		imageBouton.setEffect(colorAdjust);
-
 		imageBouton.setImage(tempImage);
 		imageBouton.setId(tempImage.getUrl());
 		imageBouton.setId(id+"-ImageView");

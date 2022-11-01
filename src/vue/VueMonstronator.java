@@ -119,6 +119,11 @@ public class VueMonstronator extends Vue{
 			BackGroundAnchor.getChildren().add(composantPlacee);
 		}
 	}
+
+	public void changerCouleur()
+	{
+
+	}
 	
 	public void changerBackGround(File file) {
 		System.out.println((file.getPath()).substring(4));
