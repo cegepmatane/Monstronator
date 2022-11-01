@@ -5,12 +5,10 @@ import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Vue;
 import controleur.ControleurMonstronator;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -67,8 +65,12 @@ public class VueMonstronator extends Vue{
 			double y = arg0.getY();
 			System.out.println("x / y: "+ x+" / "+y);
 			controleur.notifierClic(x, y);
+		});
 
-
+		Button BoutonAppliquerGrosseur = (Button)lookup("#bouton-appliquer-grosseur");
+		BoutonAppliquerGrosseur.setOnMouseClicked(arg0 -> {
+			System.out.println("Appliquer handle()");
+			controleur.notifierClicAppliquerGrosseur();
 		});
 		
 		// Scene refresh
@@ -120,6 +122,32 @@ public class VueMonstronator extends Vue{
 		}
 	}
 
+	// La grosseur = height de l'image puisque les images ont un fixed aspect-ratio
+	public double getGrosseurImage(String id) {
+		ImageView imageSelection = (ImageView)lookup("#"+id);
+		return imageSelection.getFitHeight();
+	}
+	public double getValeurGrosseur(){
+		TextField champsGrosseur = (TextField)lookup("#grosseur-valeur");
+		return Double.parseDouble(champsGrosseur.getText());
+	}
+
+	public void appliquerGrosseur(String id)
+	{
+		ImageView imageSelection = (ImageView)lookup("#"+id);
+		imageSelection.setFitHeight(getValeurGrosseur());
+	}
+
+	public void afficherValeurGrosseur(double grosseur){
+		TextField champsGrosseur = (TextField)lookup("#grosseur-valeur");
+		champsGrosseur.setText(grosseur + "");
+	}
+
+	
+	public void getCouleurSelectionee()
+	{
+
+	}
 	public void changerCouleur()
 	{
 

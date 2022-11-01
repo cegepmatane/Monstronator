@@ -97,7 +97,9 @@ public class VuePartieMonstre extends TabPane{
 		imageBouton.setId(tempImage.getUrl());
 		imageBouton.setId(id+"-ImageView");
 		System.out.println(id+"-ImageView");
-
+		
+		
+		
 		imageBouton.setPickOnBounds(true);
 		imageBouton.setPreserveRatio(true);
 		imageBouton.setFitHeight(80);

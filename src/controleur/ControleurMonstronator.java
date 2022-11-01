@@ -7,12 +7,10 @@ import vue.VueModeleImageFond;
 //import modele.MonstreModele.LEGUME;
 import vue.VueMonstronator;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.WritableRaster;
-
 public class ControleurMonstronator extends Controleur{
 	private VueMonstronator  vue;
 	private VueModeleImageFond modeleImageFond;
+	private String derniereImageSelectionnee;
 
 	public ControleurMonstronator()
 	{
@@ -39,6 +37,20 @@ public class ControleurMonstronator extends Controleur{
 	{
 		System.out.println("notifierClicModifier("+identifiant+");");
 
+		derniereImageSelectionnee = identifiant;
+
+		double grosseur = vue.getGrosseurImage(identifiant);
+		System.out.println("Height :" + grosseur);
+		vue.afficherValeurGrosseur(grosseur);
+
+
+		vue.getCouleurSelectionee();
 		vue.changerCouleur();
+	}
+
+	public void notifierClicAppliquerGrosseur()
+	{
+		if (derniereImageSelectionnee == null) return;
+		vue.appliquerGrosseur(derniereImageSelectionnee);
 	}
 }
