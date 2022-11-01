@@ -7,6 +7,9 @@ import vue.VueModeleImageFond;
 //import modele.MonstreModele.LEGUME;
 import vue.VueMonstronator;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.WritableRaster;
+
 public class ControleurMonstronator extends Controleur{
 	private VueMonstronator  vue;
 	private VueModeleImageFond modeleImageFond;

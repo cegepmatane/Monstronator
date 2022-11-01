@@ -6,62 +6,58 @@ import java.util.List;
 
 public class PartieMonstreDAO {
 	
-	File folder_Monstre;
+	File fichierMonstre;
 	
-	List<File> parties_Monstre;
+	List<File> partiesMonstre;
     
-    List<List<File>> liste_contenant_liste_parti_monstre;
+    List<List<File>> listeContenantListePartieMonstre;
     
     public PartieMonstreDAO() {
-    	ParsePartieMonstre();
+    	AnalysePartieMonstre();
     }
 	
-	public void ParsePartieMonstre() {
+	public void AnalysePartieMonstre() {
 		
-		folder_Monstre = new File("src/vue/decoration/SVG/Monsters");
+		fichierMonstre = new File("src/vue/decoration/PNG/Monsters");
 		
-		parties_Monstre = new ArrayList<>();
+		partiesMonstre = new ArrayList<>();
 
 //	    System.out.println("folder_Monstre : ");
 //	    System.out.println(folder_Monstre);
 //	    System.out.println(folder_Monstre.listFiles());
 //    	System.out.println("\nContent : ");
-	    for (final File fileEntry : folder_Monstre.listFiles()) {
+	    for (final File fileEntry : fichierMonstre.listFiles()) {
 //	    	System.out.println("fileEntry : ");
 //	    	System.out.println(fileEntry);
-	    	parties_Monstre.add(fileEntry);
+	    	partiesMonstre.add(fileEntry);
 	    }
 	    
 //	    System.out.println("\nparties_Monstre : ");
 //	    System.out.println(parties_Monstre);
 	    
-	    liste_contenant_liste_parti_monstre = new ArrayList<List<File>>();
+	    listeContenantListePartieMonstre = new ArrayList<List<File>>();
 	    List<File> temp;
-	    for (File parti_monstre : parties_Monstre) {
+	    for (File partieMonstre : partiesMonstre) {
 	    	temp = new ArrayList<>();
 //	        System.out.println(parti_monstre);
-	        for (final File fileEntry : parti_monstre.listFiles()) {
+	        for (final File fileEntry : partieMonstre.listFiles()) {
 	        	temp.add(fileEntry);
 	        }
-	        liste_contenant_liste_parti_monstre.add(temp);
+	        listeContenantListePartieMonstre.add(temp);
 	    }
 	}
 
-	public File getFolder_Monstre() {
-		return folder_Monstre;
+
+	public File getFichierMonstre() {
+		return fichierMonstre;
 	}
 
 	public List<File> getParties_Monstre() {
 //		System.out.println("DOA.PartieMonstre.getParties_Monstre");
-		return parties_Monstre;
+		return partiesMonstre;
 	}
 
 	public List<List<File>> getListeContenantListePartieMonstre() {
-		return liste_contenant_liste_parti_monstre;
+		return listeContenantListePartieMonstre;
 	}
-	
-	
-	
-	
-
 }

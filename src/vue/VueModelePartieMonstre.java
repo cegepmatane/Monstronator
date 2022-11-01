@@ -16,7 +16,7 @@ public class VueModelePartieMonstre {
 	{
     	dao = new PartieMonstreDAO();
 
-		fichier_Monstre = dao.getFolder_Monstre();
+		fichier_Monstre = dao.getFichierMonstre();
     	parties_Monstre = dao.getParties_Monstre();
     	listeContenantListePartieMonstre = dao.getListeContenantListePartieMonstre();
     }

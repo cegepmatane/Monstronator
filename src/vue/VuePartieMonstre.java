@@ -1,6 +1,8 @@
 package vue;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import controleur.ControleurMonstronator;
@@ -10,10 +12,14 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.SVGPath;
+
+import javax.imageio.ImageIO;
 
 public class VuePartieMonstre extends TabPane{
 	
@@ -74,20 +80,22 @@ public class VuePartieMonstre extends TabPane{
 		}
 	}
 	
-	private Button creerBoutton(File partieMonstre, String nomOnglet, int numeroBouton)
-	{
+	private Button creerBoutton(File partieMonstre, String nomOnglet, int numeroBouton) {
 		// set button
 		Button bouton = new Button();
 		String id = "button-"+nomOnglet+"-"+numeroBouton;
 		bouton.setId(id);
 		// set graphic
 		
-		// image 
+		//  image
 		ImageView imageBouton = new ImageView();
-
 		System.out.println((partieMonstre.getPath()).substring(4));
 		Image tempImage = new Image((partieMonstre.getPath()).substring(4));
 		System.out.println(tempImage.getUrl());
+
+		ColorAdjust colorAdjust = new ColorAdjust();
+		colorAdjust.setHue(1);
+		imageBouton.setEffect(colorAdjust);
 
 		imageBouton.setImage(tempImage);
 		imageBouton.setId(tempImage.getUrl());
