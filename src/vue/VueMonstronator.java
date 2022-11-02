@@ -7,10 +7,12 @@ import architecture.Vue;
 import controleur.ControleurMonstronator;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class VueMonstronator extends Vue{
@@ -67,12 +69,39 @@ public class VueMonstronator extends Vue{
 			controleur.notifierClic(x, y);
 		});
 
-		Button BoutonAppliquerGrosseur = (Button)lookup("#bouton-appliquer-grosseur");
-		BoutonAppliquerGrosseur.setOnMouseClicked(arg0 -> {
+		Button BoutonAppliquer = (Button)lookup("#bouton-appliquer");
+		BoutonAppliquer.setOnMouseClicked(arg0 -> {
 			System.out.println("Appliquer handle()");
-			controleur.notifierClicAppliquerGrosseur();
+			controleur.notifierClicAppliquer();
 		});
 		
+		
+		
+		Circle BouttonCouleurBleu = (Circle)lookup("#couleur-bleu");
+		BouttonCouleurBleu.setOnMouseClicked(arg0 -> {
+			System.out.println("Appliquer handle()");
+			controleur.notifierClicCouleur("bleu");
+		});
+		Circle BouttonCouleurRouge = (Circle)lookup("#couleur-rouge");
+		BouttonCouleurRouge.setOnMouseClicked(arg0 -> {
+			System.out.println("Appliquer handle()");
+			controleur.notifierClicCouleur("rouge");
+		});
+		Circle BouttonCouleurJaune = (Circle)lookup("#couleur-jaune");
+		BouttonCouleurJaune.setOnMouseClicked(arg0 -> {
+			System.out.println("Appliquer handle()");
+			controleur.notifierClicCouleur("jaune");
+		});
+		Circle BouttonCouleurVert = (Circle)lookup("#couleur-vert");
+		BouttonCouleurVert.setOnMouseClicked(arg0 -> {
+			System.out.println("Appliquer handle()");
+			controleur.notifierClicCouleur("vert");
+		});
+		Circle BouttonCouleurNoir = (Circle)lookup("#couleur-noir");
+		BouttonCouleurNoir.setOnMouseClicked(arg0 -> {
+			System.out.println("Appliquer handle()");
+			controleur.notifierClicCouleur("noir");
+		});
 		// Scene refresh
 		/*
 		Scene scene = BackGroundAnchor.getScene();
@@ -144,14 +173,36 @@ public class VueMonstronator extends Vue{
 	}
 
 	
-	public void getCouleurSelectionee()
+	
+	public void appliquerCouleur(String id, String couleur)
 	{
+		ImageView couleurSelectionee = (ImageView)lookup("#"+id);
+		ColorAdjust colorAdjust = new ColorAdjust();
+		double hue = 0;
+		if (couleur == "bleu") {
+			hue = -0.1;
+		}
+		else if (couleur == "rouge") {
+			hue = 0.85;
+		}
+		else if (couleur == "jaune") {
+			hue = -0.78;
+		}
+		else if (couleur == "vert") {
+			hue = -0.6;
+		}
+		else if (couleur == "noir") {
+			colorAdjust.setBrightness(0);
+		}
+		System.out.println(hue);
+		colorAdjust.setHue(hue);
+		couleurSelectionee.setEffect(colorAdjust);
+		
 
 	}
-	public void changerCouleur()
-	{
+	
 
-	}
+	
 	
 	public void changerBackGround(File file) {
 		System.out.println((file.getPath()).substring(4));

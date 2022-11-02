@@ -11,6 +11,7 @@ public class ControleurMonstronator extends Controleur{
 	private VueMonstronator  vue;
 	private VueModeleImageFond modeleImageFond;
 	private String derniereImageSelectionnee;
+	private String couleurSelectionnee;
 
 	public ControleurMonstronator()
 	{
@@ -27,6 +28,10 @@ public class ControleurMonstronator extends Controleur{
 	public void notifierClic(double x, double y) {
 		vue.afficherSelection(x, y);
 	}
+	public void notifierClicCouleur(String couleur) {
+		System.out.println("notifierClicCouleur("+ couleur+")");
+		couleurSelectionnee = couleur;
+	}
 	
 	public void notifierBackground()
 	{
@@ -42,15 +47,17 @@ public class ControleurMonstronator extends Controleur{
 		double grosseur = vue.getGrosseurImage(identifiant);
 		System.out.println("Height :" + grosseur);
 		vue.afficherValeurGrosseur(grosseur);
+		
+		
 
-
-		vue.getCouleurSelectionee();
-		vue.changerCouleur();
 	}
 
-	public void notifierClicAppliquerGrosseur()
+	public void notifierClicAppliquer()
 	{
 		if (derniereImageSelectionnee == null) return;
 		vue.appliquerGrosseur(derniereImageSelectionnee);
+		vue.appliquerCouleur(derniereImageSelectionnee,couleurSelectionnee);
+		
 	}
+
 }
