@@ -114,14 +114,6 @@ public class VueMonstronator extends Vue{
 		
 	}
 	
-	private Button selectionAllume = null;
-	
-	
-	public void allumerSelection(Button legume) {
-		if(selectionAllume != null) this.selectionAllume.setStyle("-fx-background-color:transparent;-fx-opacity:1;");
-		selectionAllume = legume;
-		this.selectionAllume.setStyle("-fx-background-color:yellow;-fx-opacity:0.6;");
-	}
 	
 	public void setUrlImageSelectionee(String urlString) {
 		urlImg = urlString;
@@ -200,9 +192,6 @@ public class VueMonstronator extends Vue{
 		
 
 	}
-	
-
-	
 	
 	public void changerBackGround(File file) {
 		System.out.println((file.getPath()).substring(4));
