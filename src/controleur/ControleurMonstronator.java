@@ -28,7 +28,6 @@ public class ControleurMonstronator extends Controleur{
 
 	public void notifierClic(double x, double y) {
 		vue.afficherSelection(x, y);
-		saveObject(vue.GetUrlImageSelectionee(), x, y);
 	}
 	public void notifierClicCouleur(String couleur) {
 		System.out.println("notifierClicCouleur("+ couleur+")");
@@ -42,12 +41,11 @@ public class ControleurMonstronator extends Controleur{
 
 	public void notifierClicModifier(String identifiant) {
 		System.out.println("notifierClicModifier("+identifiant+");");
-
 		derniereImageSelectionnee = identifiant;
-
 		double grosseur = vue.getGrosseurImage(identifiant);
 		System.out.println("Height :" + grosseur);
 		vue.afficherValeurGrosseur(grosseur);
+		
 	}
 
 	public void notifierClicAppliquer()	{
@@ -57,8 +55,10 @@ public class ControleurMonstronator extends Controleur{
 		
 	}
 	
-	public void saveObject(Object composantPlacee, double x, double y) {
-		monstreModele.addPartie(composantPlacee, x, y);
+	// TODO save color and size
+	
+	public void saveObject(Object composantPlacee, double x, double y, double taille, String couleur) {
+		monstreModele.addPartie(composantPlacee, x, y, taille, couleur);
 	}
 
 }

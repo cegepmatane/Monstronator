@@ -18,18 +18,24 @@ public class MonstreModele {
 	public class PartieMonstre {
 		protected Object object;
 		protected double x, y;
+		double taille;
+		String couleur;
 		
-		PartieMonstre(Object obj, double x, double y){
+		PartieMonstre(Object obj, double x, double y, double taille, String couleur){
 			object = obj;
 			this.x=x;
 			this.y=y;
+			this.taille=taille;
+			this.couleur=couleur;
 		}
 	}
 	
+	// TODO change list to hash map with id of object
+	
 	protected List<PartieMonstre> partiesMonstre = new LinkedList<PartieMonstre>();
 	
-	public void addPartie(Object obj, double x, double y) {
-		partiesMonstre.add(new PartieMonstre(obj, x, y));
+	public void addPartie(Object obj, double x, double y, double taille, String couleur) {
+		partiesMonstre.add(new PartieMonstre(obj, x, y, taille, couleur));
 	}
 	
 }
