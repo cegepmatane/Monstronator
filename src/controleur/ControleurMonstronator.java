@@ -28,6 +28,7 @@ public class ControleurMonstronator extends Controleur{
 
 	public void notifierClic(double x, double y) {
 		vue.afficherSelection(x, y);
+		saveObject(vue.GetUrlImageSelectionee(), x, y);
 	}
 	public void notifierClicCouleur(String couleur) {
 		System.out.println("notifierClicCouleur("+ couleur+")");
@@ -36,6 +37,7 @@ public class ControleurMonstronator extends Controleur{
 	
 	public void notifierBackground() {
 		vue.changerBackGround(modeleImageFond.getProchainFond());
+		// save backGroung
 	}
 
 	public void notifierClicModifier(String identifiant) {
