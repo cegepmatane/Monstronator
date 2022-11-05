@@ -54,12 +54,16 @@ public class VueMonstronator extends Vue{
 			System.out.println("Handle.actionChangerBackGround");
 			controleur.notifierBackground();
 		});
-		
+		Button actionSauvegarder = (Button) paneButtonBackGround.getChildren().get(1);
+		actionSauvegarder.setOnAction(e -> {
+			System.out.println("Handle.actionSauvegarder");
+			controleur.notifierSauvegarde();
+		});
 		
 		BackGroundAnchor = (AnchorPane)lookup("#background-monstre");
 		BackGroundImageView = (ImageView) BackGroundAnchor.getChildren().get(0);
 		Rectangle RectangleClickPartie = (Rectangle) BackGroundAnchor.getChildren().get(1);
-		
+		BackGroundImageView.setId("BackGround-Image");
 
 		RectangleClickPartie.setOnMouseClicked(arg0 -> {
 			System.out.print("Placer Handle: ");
@@ -140,6 +144,7 @@ public class VueMonstronator extends Vue{
 			System.out.println("Identifiant = " + identifiant);
 
 			BackGroundAnchor.getChildren().add(composantPlacee);
+			controleur.notifierChangementDonnee(urlImg, x, y, 100, "noir", identifiant);
 		}
 	}
 
@@ -157,6 +162,7 @@ public class VueMonstronator extends Vue{
 	{
 		ImageView imageSelection = (ImageView)lookup("#"+id);
 		imageSelection.setFitHeight(getValeurGrosseur());
+		controleur.notifierChangementTaille(getValeurGrosseur(), id);
 	}
 
 	public void afficherValeurGrosseur(double grosseur){
@@ -189,25 +195,13 @@ public class VueMonstronator extends Vue{
 		System.out.println(hue);
 		colorAdjust.setHue(hue);
 		couleurSelectionee.setEffect(colorAdjust);
-		
-
+		controleur.notifierChangementCouleur(couleur, id);
 	}
 	
-	public void changerBackGround(File file) {
+	public String changerBackGround(File file) {
 		System.out.println((file.getPath()).substring(4));
-		BackGroundImageView.setImage(new Image((file.getPath()).substring(4)));
-		//BackGroundImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-		//	@Override
-		//	public void handle(MouseEvent arg0) {
-		//		System.out.print("Placer Handle: ");
-        //    	double x = arg0.getX();
-        //    	double y = arg0.getY();
-        //    	System.out.println("x / y: "+ x+" / "+y);
-        //    	controleur.notifierClic(x, y);
-		//	}
-
-			
-		//});
+		String UrlBackground = (file.getPath()).substring(4);
+		BackGroundImageView.setImage(new Image(UrlBackground));
+		return UrlBackground;
 	}
 }

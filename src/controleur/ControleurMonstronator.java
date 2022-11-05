@@ -3,6 +3,7 @@ package controleur;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Controleur;
+import donnee.Exporteur;
 import modele.MonstreModele;
 import vue.VueModeleImageFond;
 //import modele.MonstreModele.LEGUME;
@@ -35,8 +36,7 @@ public class ControleurMonstronator extends Controleur{
 	}
 	
 	public void notifierBackground() {
-		vue.changerBackGround(modeleImageFond.getProchainFond());
-		// save backGroung
+		monstreModele.saveBackGround(vue.changerBackGround(modeleImageFond.getProchainFond()));
 	}
 
 	public void notifierClicModifier(String identifiant) {
@@ -55,10 +55,18 @@ public class ControleurMonstronator extends Controleur{
 		
 	}
 	
-	// TODO save color and size
+	public void notifierChangementDonnee(String imagePlacee, double x, double y, double taille, String couleur, String idObject) {
+		monstreModele.miseAJouerDonnee(imagePlacee, x, y, taille, couleur, idObject);
+	}
+	public void notifierChangementCouleur(String couleur, String idObject) {
+		monstreModele.miseAJouerDonnee(couleur, idObject);
+	}
+	public void notifierChangementTaille(double taille, String idObject) {
+		monstreModele.miseAJouerDonnee(taille, idObject);
+	}
 	
-	public void saveObject(Object composantPlacee, double x, double y, double taille, String couleur) {
-		monstreModele.addPartie(composantPlacee, x, y, taille, couleur);
+	public void notifierSauvegarde() {
+		monstreModele.sauvegarde();
 	}
 
 }
