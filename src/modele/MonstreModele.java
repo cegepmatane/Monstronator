@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import donnee.Exportable;
 import donnee.Exporteur;
 import vue.VueModeleImageFond;
 
@@ -15,10 +16,9 @@ public class MonstreModele {
 			instance = new MonstreModele(); return MonstreModele.instance;
 	}
 	
-	public class PartieMonstre {
-		String imageURL;
+	public class PartieMonstre implements Exportable{
+		Object imageURL, couleur;
 		double x, y, taille;
-		String couleur;
 		
 		PartieMonstre(String imageURL, double x, double y, double taille, String couleur){
 			this.imageURL = imageURL;
@@ -37,10 +37,36 @@ public class MonstreModele {
 		public void UpdateObject(String couleur) {
 			this.couleur=couleur;
 		}
+		@Override
+		public String exporterXML() {
+			// TODO OBJ to xml
+			return null;
+		}
+		@Override
+		public String exporterJSON() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 	}
 	
 	private HashMap<String, PartieMonstre> partiesMonstre = new HashMap<String, PartieMonstre>();
-	private String BackgroundURL;
+	public class Background implements Exportable{
+		public String URL;
+
+		@Override
+		public String exporterXML() {
+			// TODO OBJ to xml
+			return null;
+		}
+
+		@Override
+		public String exporterJSON() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	}
+	
+	Background background = new Background();
 	
 	public void miseAJouerDonnee(String imagePlacee, double x, double y, double taille, String couleur, String idPartie) {
 		PartieMonstre tempPartieMonstre = partiesMonstre.get(idPartie);
@@ -60,15 +86,15 @@ public class MonstreModele {
 	}
 	
 	public void saveBackGround(String backgroundURL){
-		BackgroundURL = backgroundURL;
+		background.URL = backgroundURL;
 	}
 	
 	public String getBackground() {
-		return BackgroundURL;
+		return background.URL;
 	}
 	
 	public void sauvegarde() {
-		Exporteur.getInstance().sauvegarder(partiesMonstre, BackgroundURL);
+		Exporteur.getInstance().sauvegarder(partiesMonstre, background);
 	}
 }
 

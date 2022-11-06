@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import modele.MonstreModele;
+import modele.MonstreModele.Background;
 import modele.MonstreModele.PartieMonstre;
 
 public class Exporteur {
@@ -18,12 +19,17 @@ public class Exporteur {
 	
 	public static String NOM_FICHIER = "export.xml";
 	
-	public void sauvegarder(HashMap<String, PartieMonstre> partiesMonstre, String BackgroundURL) {
+	
+	public void sauvegarder(HashMap<String, PartieMonstre> partiesMonstre, Background BackgroundURL) {
 		String texte = "";
-		for(Map.Entry mapentry : partiesMonstre.entrySet()) {
-			texte += ( (Exportable) mapentry.getValue()).exporterXML();
+		if (partiesMonstre!=null) {
+			for(Map.Entry mapentry : partiesMonstre.entrySet()) {
+				texte += ((PartieMonstre)mapentry.getValue()).exporterXML();
+			}
 		}
-		texte += "Background<" + BackgroundURL+">";
+		if (BackgroundURL != null) {
+			texte += BackgroundURL.exporterXML();			
+		}
 		texte = "<sauvegarde>" + texte + "</sauvegarde>";
 		
 		try {
