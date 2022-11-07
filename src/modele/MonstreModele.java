@@ -17,7 +17,7 @@ public class MonstreModele {
 	}
 	
 	public class PartieMonstre implements Exportable{
-		Object imageURL, couleur;
+		String imageURL, couleur;
 		double x, y, taille;
 		
 		PartieMonstre(String imageURL, double x, double y, double taille, String couleur){
@@ -39,8 +39,26 @@ public class MonstreModele {
 		}
 		@Override
 		public String exporterXML() {
-			// TODO OBJ to xml
-			return null;
+			StringBuilder xmlBuilder = new StringBuilder();
+			xmlBuilder.append("<PartieMonstre>");
+			xmlBuilder.append("<imageURL>");
+			xmlBuilder.append(this.imageURL);
+			xmlBuilder.append("</imageURL>");
+			xmlBuilder.append("<couleur>");
+			xmlBuilder.append(this.couleur);
+			xmlBuilder.append("</couleur>");
+			xmlBuilder.append("<x>");
+			xmlBuilder.append(this.x);
+			xmlBuilder.append("</x>");
+			xmlBuilder.append("<y>");
+			xmlBuilder.append(this.y);
+			xmlBuilder.append("</y>");
+			xmlBuilder.append("<taille>");
+			xmlBuilder.append(this.taille);
+			xmlBuilder.append("</taille>");
+			xmlBuilder.append("</PartieMonstre>");
+			
+			return xmlBuilder.toString();
 		}
 		@Override
 		public String exporterJSON() {
@@ -55,8 +73,7 @@ public class MonstreModele {
 
 		@Override
 		public String exporterXML() {
-			// TODO OBJ to xml
-			return null;
+			return "<Background><URL>"+URL+"</URL></Background>";
 		}
 
 		@Override
