@@ -160,9 +160,13 @@ public class VueMonstronator extends Vue{
 
 	public void appliquerGrosseur(String id)
 	{
+		vraimentAppliquerGrosseur(id,getValeurGrosseur());
+	}
+	
+	public void vraimentAppliquerGrosseur(String id, double grosseur) {
 		ImageView imageSelection = (ImageView)lookup("#"+id);
-		imageSelection.setFitHeight(getValeurGrosseur());
-		controleur.notifierChangementTaille(getValeurGrosseur(), id);
+		imageSelection.setFitHeight(grosseur);
+		controleur.notifierChangementTaille(grosseur, id);
 	}
 
 	public void afficherValeurGrosseur(double grosseur){
