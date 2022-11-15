@@ -57,6 +57,7 @@
                <children>
                   <Button layoutX="-39.0" layoutY="12.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="397.0" text="CHANGER DE BACKGROUND" />
                   <Button layoutX="370.0" layoutY="12.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="204.0" text="SAUVEGARDER" />
+                  <Button id="Undo" fx:id="Undo" layoutX="-181.0" layoutY="12.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="129.0" text="UNDO" />
                </children>
             </Pane>
          </children>

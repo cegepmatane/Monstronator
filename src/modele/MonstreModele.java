@@ -27,6 +27,33 @@ public class MonstreModele {
 			this.taille=taille;
 			this.couleur=couleur;
 		}
+		
+		
+		public String getImageURL() {
+			return imageURL;
+		}
+
+
+		public String getCouleur() {
+			return couleur;
+		}
+
+
+		public double getX() {
+			return x;
+		}
+
+
+		public double getY() {
+			return y;
+		}
+
+
+		public double getTaille() {
+			return taille;
+		}
+
+
 		public void UpdateObject(double taille, String couleur) {
 			this.taille=taille;
 			this.couleur=couleur;
@@ -67,7 +94,7 @@ public class MonstreModele {
 		}
 	}
 	
-	private HashMap<String, PartieMonstre> partiesMonstre = new HashMap<String, PartieMonstre>();
+	protected HashMap<String, PartieMonstre> partiesMonstre = new HashMap<String, PartieMonstre>();
 	public class Background implements Exportable{
 		public String URL;
 
@@ -81,6 +108,14 @@ public class MonstreModele {
 			// TODO Auto-generated method stub
 			return null;
 		}
+	}
+	
+	public double getPartieMonstreTaille(String id) {
+		return partiesMonstre.get(id).getTaille();
+	}
+	
+	public String getPartieMonstreCouleur(String id) {
+		return partiesMonstre.get(id).getCouleur();
 	}
 	
 	Background background = new Background();

@@ -6,8 +6,8 @@ import architecture.Controleur;
 import donnee.Exporteur;
 import modele.MonstreModele;
 import vue.VueModeleImageFond;
-//import modele.MonstreModele.LEGUME;
 import vue.VueMonstronator;
+import controleur.commande.*;
 
 public class ControleurMonstronator extends Controleur{
 	private VueMonstronator  vue;
@@ -50,8 +50,8 @@ public class ControleurMonstronator extends Controleur{
 
 	public void notifierClicAppliquer()	{
 		if (derniereImageSelectionnee == null) return;
-		vue.appliquerGrosseur(derniereImageSelectionnee);
-		vue.appliquerCouleur(derniereImageSelectionnee,couleurSelectionnee);
+		vue.appliquerGrosseur(derniereImageSelectionnee, monstreModele.getPartieMonstreTaille(derniereImageSelectionnee));
+		vue.appliquerCouleur(derniereImageSelectionnee,couleurSelectionnee, monstreModele.getPartieMonstreCouleur(derniereImageSelectionnee));
 		
 	}
 	
@@ -67,6 +67,18 @@ public class ControleurMonstronator extends Controleur{
 	
 	public void notifierSauvegarde() {
 		monstreModele.sauvegarde();
+	}
+	
+	public void notifierCommandCouleur(String idObject, String oldCouleur, String couleur){
+		CommandModele.getInstance().ajouterHistorique(new CommandeCouleur(idObject, oldCouleur, couleur));
+	}
+	
+	public void notifierCommandTaille(String idObject, double oldTaille, double taille){
+		CommandModele.getInstance().ajouterHistorique(new CommandeTaille(idObject, oldTaille, taille));
+	}
+	
+	public void notifierUndo() {
+		CommandModele.getInstance().undo();
 	}
 
 }

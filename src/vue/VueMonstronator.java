@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import modele.MonstreModele;
 
 public class VueMonstronator extends Vue{
 
@@ -116,6 +117,12 @@ public class VueMonstronator extends Vue{
 		});
 		*/
 		
+		Button undoButton = (Button)lookup("#Undo");
+		undoButton.setOnMouseClicked(arg0 -> {
+			System.out.println("Undo handle()");
+			controleur.notifierUndo();
+		});
+		
 	}
 	
 	
@@ -158,9 +165,8 @@ public class VueMonstronator extends Vue{
 		return Double.parseDouble(champsGrosseur.getText());
 	}
 
-	public void appliquerGrosseur(String id)
-	{
-		vraimentAppliquerGrosseur(id,getValeurGrosseur());
+	public void appliquerGrosseur(String id, double oldTaille) {
+		controleur.notifierCommandTaille(id, oldTaille, getValeurGrosseur());
 	}
 	
 	public void vraimentAppliquerGrosseur(String id, double grosseur) {
@@ -174,10 +180,11 @@ public class VueMonstronator extends Vue{
 		champsGrosseur.setText(grosseur + "");
 	}
 
+	public void appliquerCouleur(String id, String couleur, String oldCouleur) {
+		controleur.notifierCommandCouleur(id, oldCouleur, couleur);
+	}
 	
-	
-	public void appliquerCouleur(String id, String couleur)
-	{
+	public void vraimentAppliquerCouleur(String id, String couleur) {
 		ImageView couleurSelectionee = (ImageView)lookup("#"+id);
 		ColorAdjust colorAdjust = new ColorAdjust();
 		double hue = 0;
