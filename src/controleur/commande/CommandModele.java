@@ -26,5 +26,13 @@ public class CommandModele {
 		historique.remove(cmd);
 	}
 	
+	public void redo() {
+		System.out.println("Undo index: "+(historiqueUndo.size()-1)+" size: "+historiqueUndo.size());
+		Commande cmd =historiqueUndo.get(historiqueUndo.size()-1);
+		cmd.executer();
+		historique.add(cmd);
+		historiqueUndo.remove(cmd);
+	}
+	
 	
 }

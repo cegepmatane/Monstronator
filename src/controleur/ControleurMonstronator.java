@@ -80,5 +80,9 @@ public class ControleurMonstronator extends Controleur{
 	public void notifierUndo() {
 		CommandModele.getInstance().undo();
 	}
+	
+	public void notifierRedo() {
+		CommandModele.getInstance().redo();
+	}
 
 }

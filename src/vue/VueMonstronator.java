@@ -123,6 +123,12 @@ public class VueMonstronator extends Vue{
 			controleur.notifierUndo();
 		});
 		
+		Button reButton = (Button)lookup("#Redo");
+		reButton.setOnMouseClicked(arg0 -> {
+			System.out.println("Redo handle()");
+			controleur.notifierRedo();
+		});
+		
 	}
 	
 	
